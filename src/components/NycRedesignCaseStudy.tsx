@@ -8,7 +8,6 @@ import {
   SectionNumber,
   OutcomeCard,
   ContentCard,
-  ImageRow,
   InfoCard,
   JumpLink,
   RelatedProjectCard,
@@ -18,9 +17,6 @@ import { NycHeroAnimation } from "./NycHeroAnimation";
 
 import imgOldNycGov from "../assets/nyc-redesign/nycRedesign_problem-oldnycgov.png";
 import imgNewNycGov from "../assets/nyc-redesign/nycRedesign_outcome-newnycgov.png";
-import imgWorkshop1 from "../assets/nyc-redesign/workshop-1.png";
-import imgWorkshop2 from "../assets/nyc-redesign/workshop-2.png";
-import imgWorkshop3 from "../assets/nyc-redesign/workshop-3.png";
 import imgInitialExplorations from "../assets/nyc-redesign/NycRedesign_initial explorations.png";
 import imgDirection1 from "../assets/nyc-redesign/nycRedesign-direction1.mov";
 import imgDirection2 from "../assets/nyc-redesign/nycRedesign-direction2.mov";

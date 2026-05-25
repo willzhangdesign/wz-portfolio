@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import {
   PageShell,
   CaseStudyLogo,
@@ -16,9 +15,6 @@ import {
 import imgHero from "../assets/home/RTPI_Hero-Pole.png";
 import imgPilotEye from "../assets/rtpi-pole/RTPI_Pilot-eye.png";
 import imgPilotFlag from "../assets/rtpi-pole/RTPI_Pilot-flag.png";
-import imgCompMBTA from "../assets/rtpi-pole/RTPI_Comp-MBTA.png";
-import imgCompLAM from "../assets/rtpi-pole/RTPI_Comp-LAM.png";
-import imgCompMovia from "../assets/rtpi-pole/RTPI_Comp-Movia.png";
 import imgUIPrototypes1 from "../assets/rtpi-pole/RTPI_Pole_UI Prototypes.png";
 import imgFinalDesignTop1 from "../assets/rtpi-pole/RTPI_Pole_Final design top 1.png";
 import imgFinalDesignTop2 from "../assets/rtpi-pole/RTPI_Pole_Final design top 2.png";
