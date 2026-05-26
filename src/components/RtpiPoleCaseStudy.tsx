@@ -1,6 +1,5 @@
 import {
   PageShell,
-  CaseStudyLogo,
   Divider,
   SectionHeader,
   SectionNumber,
@@ -12,6 +11,8 @@ import {
   RelatedProjectCard,
   useHoverVideo,
 } from "./shared";
+import { CaseStudyHeader } from "./CaseStudyHeader";
+import { AnimatedLink } from "./AnimatedLink";
 import imgHero from "../assets/home/RTPI_Hero-Pole.png";
 import imgPilotEye from "../assets/rtpi-pole/RTPI_Pilot-eye.png";
 import imgPilotFlag from "../assets/rtpi-pole/RTPI_Pilot-flag.png";
@@ -29,6 +30,7 @@ import imgOutcomes1 from "../assets/rtpi-pole/RTPI_Pole_Outcomes 1.png";
 import imgOutcomes2 from "../assets/rtpi-pole/RTPI_Pole_Outcomes 2.png";
 import imgPoleNoSA from "../assets/rtpi-pole/RTPI_Pole - Default - No SA.png";
 import imgCurrentSigns from "../assets/rtpi-pole/RTPI_Pole_current signs.png";
+import imgSpecDiagram from "../assets/rtpi-pole/RTPI_Pole_spec diagram.png";
 import imgPeerDevices from "../assets/rtpi-pole/RTPI_Pole_Peer devices.png";
 import imgUserStory1 from "../assets/rtpi-pole/RTPI_Pole_user story 1.png";
 import imgUserStory2 from "../assets/rtpi-pole/RTPI_Pole_user story 2.png";
@@ -40,7 +42,7 @@ import imgProjectNyc from "../assets/home/projCard-nycRedesign.png";
 
 function TitleSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="overview" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <p className="typo-display text-black w-full">
         New digital signage system to show bus arrival times and routes
       </p>
@@ -48,11 +50,11 @@ function TitleSection() {
       <div className="flex flex-col min-[900px]:flex-row gap-5 min-[900px]:gap-10 items-start w-full">
         <div className="typo-body text-black flex-1 min-w-0 leading-[1.2]">
           <p className="mb-4">
-            New York City has over 15,000 bus stops, but only a fraction have real-time passenger information (RTPI) signs that display upcoming bus arrivals. The NYC Department of Transportation (DOT) installed its first generation of these signs at roughly 700 stops between 2013 and 2019, but expanding that coverage has proven difficult.
+            New York City has over 15,000 bus stops, but only a fraction have real-time passenger information (RTPI) signs that display upcoming bus arrivals. The NYC Department of Transportation (DOT) installed its first generation of these signs at roughly 700 stops between 2013 and 2019, but expanding that coverage has proven difficult.  To find a more scalable path forward, DOT launched two pilots in 2025: one testing new signage integrated into existing bus shelters, and another testing solar-powered e-ink signs that attach directly to bus poles.
           </p>
           <p className="mb-4">
-            To find a more scalable path forward, DOT launched two pilots in 2025: one testing new signage integrated into existing bus shelters, and another testing solar-powered e-ink signs that attach directly to bus poles.
-          </p>
+          In my team’s efforts to improve all digital experiences with the NYC government, we leveraged our past collaborations with the DOT and facilitated this opportunity to design the digital signage experience for their bus shelters and bus poles. 
+           </p>
           <p>
             I led the digital and hardware design for both form factors. I worked with my Design Director on research and end-to-end UX. We collaborated with DOT's Transit Planning team and the hardware vendors to optimize the display information, interactions, and UI.
           </p>
@@ -84,7 +86,7 @@ function TitleSection() {
 
 function ProblemSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="problem" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="PROBLEM"
         title="Current bus arrival signs reach just 5% of stops — and the ones that exist are hard to read, inaccurate, and costly to expand."
@@ -99,11 +101,11 @@ function ProblemSection() {
       {/* User stories */}
       <div className="flex flex-col gap-6 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           These are <strong>3 New Yorkers out of the 67+</strong> we spoke to through on-the-ground intercept interviews as well as online user testing.
         </p>
 
-        <div className="flex flex-col gap-5 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
           {[
             { img: imgUserStory1, alt: "Health aid helping elderly passenger at bus stop", text: "A health aid helping an elderly passenger get to a doctor's appointment who has to explain the sign's information." },
             { img: imgUserStory2, alt: "Text-to-speech button on bus pole", text: "A blind commuter unable to find the text-to-speech button because it doesn't have an identifying sound beacon." },
@@ -152,7 +154,7 @@ function ProblemSection() {
 
 function TopOutcomesSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="OUTCOMES"
         title="Designed a scalable, accessible RTPI system that clearly communicates bus arrivals and feels like a cohesive part of NYC's transit network."
@@ -200,7 +202,7 @@ function ProcessSection() {
 
 function PeerAnalysisSection() {
   return (
-    <div id="peer-analysis" className="flex flex-col gap-10 items-start w-full scroll-mt-10">
+    <div id="peer-analysis" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Peer analysis" />
 
       {/* Two display types */}
@@ -208,7 +210,7 @@ function PeerAnalysisSection() {
         <p className="typo-h2 font-bold text-black w-full">
           We designed for two display types, with the goal of arriving at one recommended display type for large-scale installation.
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
             The DOT piloted two hardware forms for the bus pole that communicates the 3 information elements riders look for: route, destination, and arrival time. However, the pilot devices used default, out-of-the-box interface designs that are bogged down by the same readability issues as the previous generation.
           </p>
@@ -219,7 +221,7 @@ function PeerAnalysisSection() {
         </div>
 
         <ImageRow
-          aspectRatio="4/3"
+          aspectRatio="3/4"
           images={[
             { src: imgPilotFlag, alt: "Flag-mounted pilot sign" },
             { src: imgPilotEye, alt: "Eye-level pilot sign" },
@@ -231,15 +233,15 @@ function PeerAnalysisSection() {
       <div className="flex flex-col gap-6 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We learned how other complex transit authorities designed their bus pole units through landscape analyses and conversations with digital teams from{" "}
-          <a className="cursor-pointer underline" href="https://tid.mbta.com/work/" target="_blank" rel="noopener noreferrer">Massachusetts</a>
+          <AnimatedLink href="https://tid.mbta.com/work/" external className="underline">Massachusetts</AnimatedLink>
           ,{" "}
-          <a className="cursor-pointer underline" href="https://www.metro.net/about/organization/#customer-experience" target="_blank" rel="noopener noreferrer">Los Angeles</a>
+          <AnimatedLink href="https://www.metro.net/about/organization/#customer-experience" external className="underline">Los Angeles</AnimatedLink>
           , and{" "}
-          <a className="cursor-pointer underline" href="https://www.moviatrafik.dk/" target="_blank" rel="noopener noreferrer">Copenhagen</a>
+          <AnimatedLink href="https://www.moviatrafik.dk/" external className="underline">Copenhagen</AnimatedLink>
           . Here were our learnings:
         </p>
 
-        <div className="flex flex-col gap-5 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
           <ContentCard title="Discourage vandalism">
             <p>Vertical hardware forms reduce obstruction and discourage vandalism — as does community-sourced art.</p>
           </ContentCard>
@@ -268,7 +270,7 @@ function PeerAnalysisSection() {
 
 function UIDesignSection() {
   return (
-    <div id="ui-design" className="flex flex-col gap-10 items-start w-full scroll-mt-10">
+    <div id="ui-design" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="UI design" />
 
       {/* Hardware constraints */}
@@ -276,17 +278,21 @@ function UIDesignSection() {
         <p className="typo-h2 font-bold text-black w-full">
           I needed to follow 3 hardware constraints: grayscale palette, limited battery supply, and data refresh rate.
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
-            In order to scale quickly and economically, the DOT chose to use e-ink display technology for their <strong>ability to prolong battery life</strong> (upwards of 3 years) without sacrificing resolution. Their independence from the power grid allows for easier installation, maintenance. and replacement.
+            In order to scale quickly and economically, the DOT chose to use e-ink display technology for their independence from the power grid, which allows for easier installation, maintenance, and replacement. Below are the technical constraints and how we design around them:
           </p>
-          <p className="mb-4">
-            However, the trade-off is that the display lacks smooth animation and color capabilities, so our designs had to <strong>lean heavily on layout, typographic, and grayscale visual hierarchies</strong>.
-          </p>
-          <p>
-            Refreshing the display too often also draws additional battery power, so we needed to <strong>simplify the types of content to display</strong> – for example, a live map tracking the bus location with an update every second would quickly deplete the device's battery.
-          </p>
+          <ol className="list-decimal list-outside pl-5 flex flex-col gap-2">
+            <li><strong>Grayscale display:</strong> Clear visual and typographic hierarchy, especially around information that usually get color-coded.</li>
+            <li><strong>No animation:</strong> Changes on screen need to be expected and simple.</li>
+            <li><strong>Low refresh rate:</strong> Simplify the types of content to display – for example, a live map tracking the bus location would quickly deplete the device's battery.</li>
+          </ol>
         </div>
+        <img
+          alt="RTPI pole spec diagram"
+          className="block w-full rounded-[12px]"
+          src={imgSpecDiagram}
+        />
       </div>
 
       {/* Layout & typography exploration */}
@@ -294,7 +300,7 @@ function UIDesignSection() {
         <p className="typo-h2 font-bold text-black w-full">
           I experimented layout and typography to accommodate long bus route numbers, longer destination names, and 5 different types of bus services – all on an A4-sized e-ink screen.
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
             On a digital sign that's just slightly larger than letter-sized paper, screen real-estate is one of the biggest constraints I designed around.
           </p>
@@ -308,7 +314,7 @@ function UIDesignSection() {
 
         <img alt="Early UI explorations for RTPI pole sign" className="block w-full rounded-[12px]" src={imgUIPrototypes1} />
 
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">The design explorations prioritized 2 user needs:</p>
           <ol className="list-decimal ml-6 space-y-2 mb-4">
             <li><strong>Identify the bus route number and service type</strong>. Special services like Limited, Select-Bus Service, and Rush required their respective tags LTD, SBS, and RUSH.</li>
@@ -343,7 +349,7 @@ function UIDesignSection() {
           </div>
         </div>
 
-        <p className="typo-body text-black w-full leading-[1.4]">
+        <p className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           More often than not, governments like to pack as much information as possible onto a screen, like a <strong>"love-bombing" of information for every scenario</strong>. So I also focused on utilizing negative space more effectively – to <strong>draw the eyes to the information that matters most</strong>, and allow content to breathe.
         </p>
       </div>
@@ -358,7 +364,7 @@ function EndToEndUXSection() {
   const videoAfter = useHoverVideo();
 
   return (
-    <div id="end-to-end-ux" className="flex flex-col gap-10 items-start w-full scroll-mt-10">
+    <div id="end-to-end-ux" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionNumber number={3} title="End-to-end UX" />
 
       {/* User testing → second screen */}
@@ -366,7 +372,7 @@ function EndToEndUXSection() {
         <p className="typo-h2 font-bold text-black w-full">
           After conducting user testing at bus stations, rider feedback sent us in a new direction in hardware to show more relevant information about their journeys ahead.
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
             We conducted intercept user testing at bus stations during rush hours to understand what people look at for arrival information, and how they want to plan their trips.
           </p>
@@ -391,7 +397,7 @@ function EndToEndUXSection() {
         <p className="typo-h2 font-bold text-black w-full">
           We also had to ensure that blind or low-vision riders are able to use the device's text-to-speech (TTS) functions
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-3">There were 3 reasons the pilot TTS buttons didn't work well for low-vision users in testing:</p>
           <ol className="list-decimal ml-6 space-y-2">
             <li><strong>Unfamiliar sound beacon</strong>: low-vision users needed to hear that the button exists first – but the identifying beacon audio wasn't familiar, and was too quiet.</li>
@@ -406,7 +412,7 @@ function EndToEndUXSection() {
 
           {/* Before card */}
           <div
-            className="flex-1 min-w-0 bg-[#F5F5F5] rounded-[12px] p-4 flex flex-col gap-3 cursor-pointer"
+            className="flex-1 min-w-0 bg-[#F5F5F5] border border-black rounded-[12px] p-4 flex flex-col gap-3 cursor-pointer"
             tabIndex={0}
             {...videoBefore.hoverHandlers}
           >
@@ -428,7 +434,7 @@ function EndToEndUXSection() {
 
           {/* After card */}
           <div
-            className="flex-1 min-w-0 bg-[#F5F5F5] rounded-[12px] p-4 flex flex-col gap-3 cursor-pointer"
+            className="flex-1 min-w-0 bg-[#F5F5F5] border border-black rounded-[12px] p-4 flex flex-col gap-3 cursor-pointer"
             tabIndex={0}
             {...videoAfter.hoverHandlers}
           >
@@ -451,7 +457,7 @@ function EndToEndUXSection() {
         </div>
 
 
-        <p className="typo-body text-black w-full leading-[1.4]">
+        <p className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           Introducing the screen also meant additional hardware complexities, such as new button configurations, added weight from a second battery pack, and custom hardware casing. We worked with the hardware vendor to ensure the physics was possible, and the new constraints didn't hinder the user experience.
         </p>
       </div>
@@ -469,7 +475,7 @@ function EndToEndUXSection() {
         <p className="typo-h2 font-bold text-black w-full">
           New Yorkers love making "art"; the DOT hates vandalism. We bridged both needs.
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-3">Artwork on the RTPI units served practical purposes:</p>
           <ul className="list-disc ml-6 space-y-1 mb-3">
             <li>Increases identifiability, engaging more riders</li>
@@ -495,7 +501,7 @@ function EndToEndUXSection() {
 
 function FinalOutcomesSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="final-outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="OUTCOMES"
         title="A new RTPI signage system that clearly and concisely informs riders regardless of ability or digital access."
@@ -551,10 +557,22 @@ function RelatedProjectsSection() {
    Main page
    ════════════════════════════════════ */
 
+const RTPI_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "outcomes", label: "Outcomes" },
+  { id: "peer-analysis", label: "Process: Peer analysis" },
+  { id: "ui-design", label: "Process: UI design" },
+  { id: "end-to-end-ux", label: "Process: End-to-end UX" },
+  { id: "final-outcomes", label: "Outcomes" },
+];
+
 export function RtpiPoleCaseStudy() {
   return (
-    <PageShell variant="case-study">
-      <CaseStudyLogo />
+    <PageShell
+      variant="case-study"
+      header={<CaseStudyHeader projectName="Bus pole digital signage" sections={RTPI_SECTIONS} />}
+    >
       <img alt="RTPI bus pole hero" className="block w-full rounded-[12px]" src={imgHero} />
 
       <TitleSection />

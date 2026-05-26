@@ -11,22 +11,36 @@ import imgLogoBlack from "../assets/home/logo-black.png";
 export function PageShell({
   children,
   variant = "home",
+  header,
 }: {
   children: ReactNode;
   variant?: "home" | "case-study";
+  header?: ReactNode;
 }) {
   const isCaseStudy = variant === "case-study";
+
+  if (isCaseStudy) {
+    // Case-study layout: card is a fixed, internally-scrolling container.
+    // 24px gap on top/bottom shows the WoodGrainBackground; window never scrolls.
+    return (
+      <div className="w-full h-screen bg-white overflow-hidden">
+        <WoodGrainBackground />
+        <div className="page-shell-body fixed top-[12px] bottom-[12px] sm:top-[16px] sm:bottom-[16px] left-1/2 -translate-x-1/2 w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] rounded-[8px] overflow-y-auto overflow-x-hidden flex flex-col items-center">
+          {header}
+          <div className="flex flex-col gap-8 sm:gap-16 items-center w-full max-w-[1200px] p-[2vh] sm:p-[3.5vh]">
+            {children}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Home layout: untouched
   return (
     <div className="w-full min-h-screen bg-white overflow-x-hidden">
       <WoodGrainBackground />
       <div className="relative z-10 flex justify-center items-start min-h-screen py-10">
-        <div
-          className={
-            isCaseStudy
-              ? "page-shell-body border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] flex flex-col gap-8 sm:gap-16 items-center relative w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] px-[6vw] py-[6vh] rounded-[8px] overflow-hidden"
-              : "page-shell-body border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] flex flex-col items-start relative w-[1272px] max-w-[80vw] rounded-[8px] overflow-hidden"
-          }
-        >
+        <div className="page-shell-body border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] flex flex-col items-start relative w-[1272px] max-w-[80vw] rounded-[8px] overflow-hidden">
           {children}
         </div>
       </div>

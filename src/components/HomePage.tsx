@@ -102,6 +102,7 @@ export function HomePage() {
         description="Designed a new retirement planning service for individual investors that prioritizes financial literacy and fiscal confidence through emotional journey mapping."
         image={imgProject04}
         tag="🔒"
+        href="/case-study/vanguard"
       />
     </PageShell>
   );

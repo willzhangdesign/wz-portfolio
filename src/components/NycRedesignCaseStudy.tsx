@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router";
 import {
   PageShell,
-  CaseStudyLogo,
   Divider,
   SectionHeader,
   SectionNumber,
@@ -13,6 +12,8 @@ import {
   RelatedProjectCard,
   useHoverVideo,
 } from "./shared";
+import { CaseStudyHeader } from "./CaseStudyHeader";
+import { AnimatedLink } from "./AnimatedLink";
 import { NycHeroAnimation } from "./NycHeroAnimation";
 
 import imgOldNycGov from "../assets/nyc-redesign/nycRedesign_problem-oldnycgov.png";
@@ -40,7 +41,7 @@ import imgProblemGraphic3 from "../assets/nyc-redesign/nycRedesign_problem-graph
 
 function TitleSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="overview" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <p className="typo-display text-black w-full">
         Redesigning NYC government's digital infrastructure
       </p>
@@ -90,7 +91,7 @@ function TitleSection() {
 
 function ProblemSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="problem" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="PROBLEM"
         title="New Yorkers couldn't find what they needed. Those who did still struggled to complete their tasks."
@@ -105,7 +106,7 @@ function ProblemSection() {
       {/* User stories */}
       <div className="flex flex-col gap-6 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           Picture yourself in the shoes of one of these New Yorkers below:
         </p>
 
@@ -166,7 +167,7 @@ function ProblemSection() {
 
 function TopOutcomesSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="OUTCOMES"
         title="The redesign directly addressed all four problems we set out to solve, and the results reflected that."
@@ -218,7 +219,7 @@ function BrandDesignSection() {
   const video2 = useHoverVideo();
 
   return (
-    <div id="brand-design" className="flex flex-col gap-10 items-start w-full scroll-mt-10">
+    <div id="brand-design" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Brand design" />
 
       {/* North star quote */}
@@ -228,10 +229,10 @@ function BrandDesignSection() {
           <br />
           This became our product north star.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           <strong>I led the City government's first design workshop,</strong> engaging product teams from 12 agencies across the government to go out to community-based organizations – like libraries, non-profits, or community centers – to understand people's website experience, relationship to our government, and what it means to be a New Yorker.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           Initial design explorations used the careers page so that the <strong>look-and-feel</strong> <strong>feedback</strong> can be tied to <strong>task-completion metrics</strong>. This helped anchor our broad design explorations across colors, typefaces, and trends.
         </p>
         <div className="aspect-[972/500] relative rounded-[12px] overflow-hidden shadow-[0px_0px_10px_0px_rgba(0,0,0,0.2)] w-full bg-[#e7f0fa]">
@@ -244,7 +245,7 @@ function BrandDesignSection() {
         <p className="typo-h3 font-bold text-black w-full">
           From wide explorations, two directions emerged. I focused on developing Direction 2 — landing a design language 100% of users called modern, approachable, and official.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           Coming out of COVID, people wanted a government that felt supportive — not punishing. A Bed-Stuy resident put it best: they wanted <strong>"more of nature, serenity, and growth."</strong>
           <br />
           We carried the warmth of Direction 2 into the final designs, while drawing on the structural clarity of Direction 1.
@@ -355,11 +356,11 @@ function TypographySubsection() {
       <p className="typo-h2 font-bold text-black w-full">
         We chose typefaces that were accessible, open-source, and can translate into NYC's 10 official languages.
       </p>
-      <p className="typo-body text-black w-full">
+      <p className="typo-body text-black w-full max-w-[860px]">
         We selected Clash Grotesk for headers because of its open, wide forms to balance government authority with the warmth of NYC's communities.
         <br />
         We selected Noto Sans for everything else. It's a global font supporting nearly every script in the world, and a requirement under{" "}
-        <a className="cursor-pointer underline" href="https://www.nyc.gov/site/law/about/language-access-plan.page" target="_blank" rel="noopener noreferrer">Local Law 30</a>
+        <AnimatedLink href="https://www.nyc.gov/site/law/about/language-access-plan.page" external className="underline">Local Law 30</AnimatedLink>
         , which mandates city services be accessible in at least 10 languages.
       </p>
       <div className="flex flex-col sm:flex-row gap-6 w-full">
@@ -387,9 +388,9 @@ function PhotographySubsection() {
       <p className="typo-h2 font-bold text-black w-full">
         We created new imagery guidelines that reflect the diversity and aspirations of New Yorkers.
       </p>
-      <p className="typo-body text-black w-full">
+      <p className="typo-body text-black w-full max-w-[860px]">
         As one lifelong resident put it: they wanted to see <strong>"people of all ages and points of view."</strong> We translated that into a set of{" "}
-        <a className="cursor-pointer underline" href="https://designsystem.nyc.gov/brand/photography.html" target="_blank" rel="noopener noreferrer">photo guidelines</a>
+        <AnimatedLink href="https://designsystem.nyc.gov/brand/photography.html" external className="underline">photo guidelines</AnimatedLink>
         {" "}grounded in both research and our values.
       </p>
 
@@ -397,7 +398,7 @@ function PhotographySubsection() {
         <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgPhotographyGuide} />
       </div>
 
-      <p className="typo-body text-black w-full">
+      <p className="typo-body text-black w-full max-w-[860px]">
         Using those guidelines, we ran an internal photography competition with city employees (our "Super New Yorkers") to build the city's first centralized photo library. We wanted their perspectives: people who navigate this city daily, serve their communities, and represent its full diversity across all five boroughs.
       </p>
 
@@ -464,7 +465,7 @@ function ColorPaletteSubsection() {
         </ContentCard>
       </div>
 
-      <p className="typo-body text-black w-full">
+      <p className="typo-body text-black w-full max-w-[860px]">
         <strong>I also had to solve for scaling the palette</strong> in a design system that fits with hundreds of sub-brands – government agencies – and all their service contexts and use-cases. I expand on this in my{" "}
         <Link to="/case-study/nyc-design-system" className="underline cursor-pointer">NYC Digital Design System case study</Link>
         , as it was later developed.
@@ -530,7 +531,7 @@ function CarouselSubsection() {
 
 function InformationArchitectureSection() {
   return (
-    <div id="information-architecture" className="flex flex-col gap-10 items-start w-full scroll-mt-10">
+    <div id="information-architecture" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Information architecture" />
 
       {/* Parking ticket */}
@@ -538,7 +539,7 @@ function InformationArchitectureSection() {
         <p className="typo-h2 font-bold text-black w-full">
           We restructured the site to make popular services easy to find, start, and complete — beginning with the most common task: paying a parking ticket.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           Paying a parking ticket was our <strong>most popular task</strong>, and <strong>one of its most broken</strong>. The flow mirrored government structure instead of a simple checkout, and missteps could mean additional penalties. It was so convoluted that private companies (WinIt and Pay NYC Fines) built profitable workarounds, charging New Yorkers for something the city should offer free. <strong>This wasn't just a usability problem – it was an equity one.</strong>
           <br />
           After a basic Google search to pay a ticket, users could <strong>arrive at 7 different city starting-points</strong>. This meant there was no single recommended path for users.
@@ -559,7 +560,7 @@ function InformationArchitectureSection() {
         <p className="typo-h2 font-bold text-black w-full">
           I designed the first "Guide" page that cut 311 call volume by 41%.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           Agency sites on nyc.gov prioritize documenting every option a user could take, rather than the best one. Guides flip that approach: each page sets expectations, surfaces the right information, and points users to a clear next step.
           <br />
           I designed the first Guide page, structuring content and layout so users could scan for what applies to them, understand what's required, and act without second-guessing. That clarity paid off in its first quarter after launch with a drop in 311 calls.
@@ -572,7 +573,7 @@ function InformationArchitectureSection() {
         <p className="typo-h2 font-bold text-black w-full">
           I designed a global navigation component to help users find services faster across 100+ agency sites
         </p>
-        <div className="typo-body text-black w-full leading-[1.4]">
+        <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
             The old navigation mirrored government bureaucracy: no clear hierarchy, no clear path. Users would loop endlessly, starting at the homepage, landing on the wrong page, and struggling to find their way back.
           </p>
@@ -596,7 +597,7 @@ function InformationArchitectureSection() {
         <p className="typo-h2 font-bold text-black w-full">
           I led the design of the new city-wide design system to scale the redesign roll-out and grow our system contexts by simplifying numerous other complex services like paying for parking tickets.
         </p>
-        <p className="typo-body text-black w-full">
+        <p className="typo-body text-black w-full max-w-[860px]">
           nyc.gov spans hundreds of sites and thousands of pages. The work we'd done so far was meaningful, but without a shared design infrastructure, every agency would keep building inconsistently, and the improvements wouldn't hold.
           <br />
           The design system grows with research into end-to-end user journeys and each redesigned service. I go in-depth on my role in the creation of the design system in the case study below:
@@ -627,7 +628,7 @@ function InformationArchitectureSection() {
 
 function FinalOutcomesSection() {
   return (
-    <div className="flex flex-col gap-10 items-start w-full">
+    <div id="final-outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader label="OUTCOMES" title="Real results for real New Yorkers." />
 
       <div className="gap-6 grid grid-cols-2 [@media(max-width:400px)]:grid-cols-1 w-full">
@@ -676,11 +677,21 @@ function RelatedProjectsSection() {
    Main page
    ════════════════════════════════════ */
 
+const NYC_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "outcomes", label: "Outcomes" },
+  { id: "brand-design", label: "Process: Brand design" },
+  { id: "information-architecture", label: "Process: Information architecture" },
+  { id: "final-outcomes", label: "Outcomes" },
+];
+
 export function NycRedesignCaseStudy() {
   return (
-    <PageShell variant="case-study">
-      <CaseStudyLogo />
-
+    <PageShell
+      variant="case-study"
+      header={<CaseStudyHeader projectName="nyc.gov Redesign" sections={NYC_SECTIONS} />}
+    >
       {/* Hero animation */}
       <NycHeroAnimation />
 

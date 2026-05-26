@@ -4,6 +4,7 @@ import { HomePage } from "./components/HomePage";
 import { NycRedesignCaseStudy } from "./components/NycRedesignCaseStudy";
 import { RtpiPoleCaseStudy } from "./components/RtpiPoleCaseStudy";
 import { BusShelterCaseStudy } from "./components/BusShelterCaseStudy";
+import { VanguardCaseStudy } from "./components/VanguardCaseStudy";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/case-study/bus-shelter",
         Component: BusShelterCaseStudy,
+      },
+      {
+        path: "/case-study/vanguard",
+        Component: VanguardCaseStudy,
       },
     ],
   },
