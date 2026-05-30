@@ -128,7 +128,7 @@ function ProblemSection() {
       <div className="flex flex-col gap-6 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">Top pain points</p>
 
-        <div className="gap-6 grid grid-cols-2 [@media(max-width:400px)]:grid-cols-1 w-full">
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
           <ContentCard title="Confusing navigation">
             <p>The site was built around government structure, <strong>not New Yorkers' needs</strong>.</p>
             <ul className="list-disc ml-6 mt-2 space-y-1">
@@ -179,7 +179,7 @@ function TopOutcomesSection() {
         src={imgNewNycGov}
       />
 
-      <div className="gap-6 grid grid-cols-2 [@media(max-width:400px)]:grid-cols-1 w-full">
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
         <OutcomeCard title="13 points in Improved customer satisfaction.">
           <p>CSAT surveys reported positive feedback related to the navigability, cleanliness of the new visual design, the search experience, and more.</p>
         </OutcomeCard>
@@ -446,7 +446,7 @@ function ColorPaletteSubsection() {
         <ColorSwatch name="Action blue" hex="#103FEF" bg="#103FEF" color="#FFFFFF" />
       </div>
 
-      <div className="gap-6 grid grid-cols-2 [@media(max-width:400px)]:grid-cols-1 w-full">
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
         <ContentCard title="Brand stratification">
           <p>
             Black <strong>anchors the primary nyc.gov</strong> brand, distinguishing it from agency brands.
@@ -631,7 +631,7 @@ function FinalOutcomesSection() {
     <div id="final-outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader label="OUTCOMES" title="Real results for real New Yorkers." />
 
-      <div className="gap-6 grid grid-cols-2 [@media(max-width:400px)]:grid-cols-1 w-full">
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
         <OutcomeCard title="13 points in Improved customer satisfaction.">
           <p>CSAT surveys reported positive feedback related to the navigability, cleanliness of the new visual design, the search experience, and more.</p>
         </OutcomeCard>
