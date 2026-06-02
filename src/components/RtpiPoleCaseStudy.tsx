@@ -96,6 +96,8 @@ function ProblemSection() {
         alt="Current RTPI pilot signs at bus stops"
         className="block w-full rounded-[12px]"
         src={imgCurrentSigns}
+        loading="lazy"
+        decoding="async"
       />
 
       {/* User stories */}
@@ -112,7 +114,7 @@ function ProblemSection() {
             { img: imgUserStory3, alt: "Low-vision commuter trying to read RTPI sign", text: "A low-vision commuter unable to read the information on the display due to its non-ADA-compliant type sizes." },
           ].map((story, i) => (
             <div key={i} className="flex flex-col gap-3 items-start">
-              <img src={story.img} alt={story.alt} className="w-full rounded-[8px] object-cover" />
+              <img src={story.img} alt={story.alt} className="w-full rounded-[8px] object-cover" loading="lazy" decoding="async" />
               <p className="typo-body text-black">{story.text}</p>
             </div>
           ))}
@@ -257,6 +259,8 @@ function PeerAnalysisSection() {
           alt="RTPI signs from MBTA, LA Metro, and Copenhagen Movia"
           className="block w-full rounded-[12px]"
           src={imgPeerDevices}
+          loading="lazy"
+          decoding="async"
         />
         <p className="typo-caption font-medium text-[#666] w-full">
           RTPI signs from MBTA, LA Metro, and Copenhagen Movia
@@ -292,6 +296,8 @@ function UIDesignSection() {
           alt="RTPI pole spec diagram"
           className="block w-full rounded-[12px]"
           src={imgSpecDiagram}
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -312,7 +318,7 @@ function UIDesignSection() {
           </p>
         </div>
 
-        <img alt="Early UI explorations for RTPI pole sign" className="block w-full rounded-[12px]" src={imgUIPrototypes1} />
+        <img alt="Early UI explorations for RTPI pole sign" className="block w-full rounded-[12px]" src={imgUIPrototypes1} loading="lazy" decoding="async" />
 
         <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">The design explorations prioritized 2 user needs:</p>
@@ -428,6 +434,7 @@ function EndToEndUXSection() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
               />
             </div>
           </div>
@@ -450,6 +457,7 @@ function EndToEndUXSection() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
               />
             </div>
           </div>
@@ -467,7 +475,7 @@ function EndToEndUXSection() {
         <p className="typo-h2 font-bold text-black w-full">
           The final design has 2 screens to show riders the right information, in the right place, at the right time.
         </p>
-        <img alt="Final 2-screen design" className="block w-full rounded-[12px]" src={imgPoleFinalLarge} />
+        <img alt="Final 2-screen design" className="block w-full rounded-[12px]" src={imgPoleFinalLarge} loading="lazy" decoding="async" />
       </div>
 
       {/* Art */}
@@ -573,7 +581,7 @@ export function RtpiPoleCaseStudy() {
       variant="case-study"
       header={<CaseStudyHeader projectName="Bus pole digital signage" sections={RTPI_SECTIONS} />}
     >
-      <img alt="RTPI bus pole hero" className="block w-full rounded-[12px]" src={imgHero} />
+      <img alt="RTPI bus pole hero" className="block w-full rounded-[12px]" src={imgHero} fetchPriority="high" />
 
       <TitleSection />
 

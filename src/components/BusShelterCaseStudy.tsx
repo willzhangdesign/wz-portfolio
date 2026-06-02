@@ -125,6 +125,8 @@ function ProblemSection() {
                 src={story.img}
                 alt={story.alt}
                 className="block w-full rounded-[12px]"
+                loading="lazy"
+                decoding="async"
               />
               <p className="typo-body text-black">{story.text}</p>
             </div>
@@ -165,7 +167,7 @@ function TopOutcomesSection() {
         title="Designed a clear and concise experience for bus shelters that are accessible to all New Yorkers."
       />
 
-      <img alt="Shelter RTPI outcomes" className="block w-full rounded-[12px]" src={imgOutcomes} />
+      <img alt="Shelter RTPI outcomes" className="block w-full rounded-[12px]" src={imgOutcomes} loading="lazy" decoding="async" />
 
       <div className="flex flex-col gap-5 w-full">
         <OutcomeCard title="Improved display technology">
@@ -276,7 +278,7 @@ function DesignSystemAdherenceSection() {
               <p className="typo-caption text-[#888]">Before</p>
               <p className="typo-h3 font-bold text-black">Inside shelter, low sound and odd features</p>
             </div>
-            <img alt="TTS before — inside shelter" className="block w-full rounded-[8px]" src={imgTTSBefore} />
+            <img alt="TTS before — inside shelter" className="block w-full rounded-[8px]" src={imgTTSBefore} loading="lazy" decoding="async" />
             <p className="typo-body text-black max-w-[860px]">
               Users expressed having a hard time hearing the sound beacon, and the button not providing a haptic response to confirm that it was pressed – both causing confusion.
             </p>
@@ -287,7 +289,7 @@ function DesignSystemAdherenceSection() {
               <p className="typo-caption text-[#888]">After</p>
               <p className="typo-h3 font-bold text-black">Outside shelter, familiar design</p>
             </div>
-            <img alt="TTS after — outside shelter" className="block w-full rounded-[8px]" src={imgTTSAfter} />
+            <img alt="TTS after — outside shelter" className="block w-full rounded-[8px]" src={imgTTSAfter} loading="lazy" decoding="async" />
             <p className="typo-body text-black max-w-[860px]">
               Users recommended that the button be placed on the outside for easy access, and that the button sounds and looks more familiar in shape, color, and material – such as a crosswalk signal button (APS).
             </p>
@@ -322,7 +324,7 @@ function InformationHierarchySection() {
         {/* Scrolling prototype — autoplays */}
         <div className="bg-black rounded-[12px] p-8 flex flex-col gap-4 w-full">
           <div className="rounded-[8px] overflow-hidden">
-            <video className="block w-full" src={imgPrototypeScrolling} autoPlay muted loop playsInline />
+            <video className="block w-full" src={imgPrototypeScrolling} autoPlay muted loop playsInline preload="metadata" />
           </div>
           <p className="typo-body text-white">
             Horizontal scrolling text is visually busy and hard to read, increasing cognitive load
@@ -332,7 +334,7 @@ function InformationHierarchySection() {
         {/* Paging prototype — autoplays */}
         <div className="bg-black rounded-[12px] p-8 flex flex-col gap-4 w-full">
           <div className="rounded-[8px] overflow-hidden">
-            <video className="block w-full" src={imgPrototypePaging} autoPlay muted loop playsInline />
+            <video className="block w-full" src={imgPrototypePaging} autoPlay muted loop playsInline preload="metadata" />
           </div>
           <p className="typo-body text-white">
             The start and end of a paging animation are difficult to track, and may confuse riders
@@ -356,15 +358,15 @@ function InformationHierarchySection() {
 
         {/* SA design — autoplays */}
         <div className="bg-black rounded-[12px] p-8 w-full">
-          <video className="block w-full rounded-[8px]" src={imgFinalSA} autoPlay muted loop playsInline />
+          <video className="block w-full rounded-[8px]" src={imgFinalSA} autoPlay muted loop playsInline preload="metadata" />
         </div>
 
         {/* Labeled final design — full width */}
-        <img alt="Shelter final design labeled" className="block w-full rounded-[12px]" src={imgFinalDesign} />
+        <img alt="Shelter final design labeled" className="block w-full rounded-[12px]" src={imgFinalDesign} loading="lazy" decoding="async" />
 
         {/* SA design with service alert caption */}
         <div className="bg-[#F5F5F5] rounded-[12px] p-8 flex flex-col gap-4 w-full">
-          <img alt="Shelter service alert design" className="block w-full rounded-[8px]" src={imgShelterSA} />
+          <img alt="Shelter service alert design" className="block w-full rounded-[8px]" src={imgShelterSA} loading="lazy" decoding="async" />
           <p className="typo-body text-[#666]">
             Bus service alerts, much like those for the subway, are lengthy and complex. Instead of cramming long messages into a narrow screen, we decided to point users to the best experience, which is on the MTA website.
           </p>
@@ -446,7 +448,7 @@ export function BusShelterCaseStudy() {
       variant="case-study"
       header={<CaseStudyHeader projectName="Bus shelter digital signage" sections={SHELTER_SECTIONS} />}
     >
-      <img alt="Bus shelter RTPI hero" className="block w-full rounded-[12px]" src={imgHero} />
+      <img alt="Bus shelter RTPI hero" className="block w-full rounded-[12px]" src={imgHero} fetchPriority="high" />
 
       <TitleSection />
 

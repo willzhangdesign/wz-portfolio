@@ -101,6 +101,8 @@ function ProblemSection() {
         alt="Old nyc.gov website"
         className="block w-full rounded-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.2)]"
         src={imgOldNycGov}
+        loading="lazy"
+        decoding="async"
       />
 
       {/* User stories */}
@@ -117,7 +119,7 @@ function ProblemSection() {
             { img: imgProblemGraphic3, text: "A parent checking for school closures during a winter storm, but the site search isn't prioritizing the right pages" },
           ].map((story, i) => (
             <div key={i} className="flex flex-col gap-3 items-start">
-              <img alt="" className="block w-full h-auto" src={story.img} />
+              <img alt="" className="block w-full h-auto" src={story.img} loading="lazy" decoding="async" />
               <p className="typo-body text-black">{story.text}</p>
             </div>
           ))}
@@ -177,6 +179,8 @@ function TopOutcomesSection() {
         alt="New nyc.gov website"
         className="block w-full rounded-[12px] shadow-[0px_0px_10px_0px_rgba(0,0,0,0.2)]"
         src={imgNewNycGov}
+        loading="lazy"
+        decoding="async"
       />
 
       <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
@@ -236,7 +240,7 @@ function BrandDesignSection() {
           Initial design explorations used the careers page so that the <strong>look-and-feel</strong> <strong>feedback</strong> can be tied to <strong>task-completion metrics</strong>. This helped anchor our broad design explorations across colors, typefaces, and trends.
         </p>
         <div className="aspect-[972/500] relative rounded-[12px] overflow-hidden shadow-[0px_0px_10px_0px_rgba(0,0,0,0.2)] w-full bg-[#e7f0fa]">
-          <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgInitialExplorations} />
+          <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgInitialExplorations} loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -262,7 +266,7 @@ function BrandDesignSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 1</p>
               <p className="typo-intro font-bold text-black">"Architectural grit"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video1.videoRef} loop muted playsInline className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
+                <video ref={video1.videoRef} loop muted playsInline preload="metadata" className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the city's built environment and gravitas, through liberty green, sharp edges, textures, and bold typographic hierarchy.
@@ -281,7 +285,7 @@ function BrandDesignSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 2</p>
               <p className="typo-intro font-bold text-black">"Approachable spaces"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video2.videoRef} loop muted playsInline className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
+                <video ref={video2.videoRef} loop muted playsInline preload="metadata" className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the intimate, local experience of living here, through warm golden hour colors, serif typography, and a friendlier tone.
@@ -395,7 +399,7 @@ function PhotographySubsection() {
       </p>
 
       <div className="aspect-[1692/720] relative rounded-[12px] overflow-hidden w-full">
-        <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgPhotographyGuide} />
+        <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgPhotographyGuide} loading="lazy" decoding="async" />
       </div>
 
       <p className="typo-body text-black w-full max-w-[860px]">
@@ -408,10 +412,10 @@ function PhotographySubsection() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="aspect-[4/5] relative rounded-[12px] overflow-hidden border border-black">
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgMediaCredit1} />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgMediaCredit1} loading="lazy" decoding="async" />
           </div>
           <div className="aspect-[4/5] relative rounded-[12px] overflow-hidden border border-black">
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgMediaCredit2} />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgMediaCredit2} loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -507,7 +511,7 @@ function CarouselSubsection() {
       <div className="relative w-full overflow-hidden rounded-[12px]" onWheel={handleWheel} aria-roledescription="carousel">
         <div className="flex w-full transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${current * 100}%)` }}>
           {slides.map((s, i) => (
-            <img key={i} alt={s.caption} src={s.image} className="block w-full shrink-0 rounded-[12px]" aria-hidden={i !== current} />
+            <img key={i} alt={s.caption} src={s.image} className="block w-full shrink-0 rounded-[12px]" aria-hidden={i !== current} loading="lazy" decoding="async" />
           ))}
         </div>
       </div>
@@ -547,7 +551,7 @@ function InformationArchitectureSection() {
 
         <div className="flex flex-col gap-2 items-start w-full">
           <div className="aspect-[2598/1724] relative rounded-[12px] w-full overflow-hidden">
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgTouchpoints} />
+            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgTouchpoints} loading="lazy" decoding="async" />
           </div>
           <p className="typo-caption font-medium text-[#666] w-full">
             Illustration of the 7 vastly different starting points New Yorkers could have to pay a parking ticket
@@ -565,7 +569,7 @@ function InformationArchitectureSection() {
           <br />
           I designed the first Guide page, structuring content and layout so users could scan for what applies to them, understand what's required, and act without second-guessing. That clarity paid off in its first quarter after launch with a drop in 311 calls.
         </p>
-        <img alt="" className="block w-full rounded-[12px]" src={imgParkingTicket} />
+        <img alt="" className="block w-full rounded-[12px]" src={imgParkingTicket} loading="lazy" decoding="async" />
       </div>
 
       {/* Navigation component */}
@@ -588,7 +592,7 @@ function InformationArchitectureSection() {
           </ol>
         </div>
         <div className="bg-[#eee] rounded-[12px] p-6 w-full">
-          <img alt="" className="block w-full" src={imgNavLabeled} />
+          <img alt="" className="block w-full" src={imgNavLabeled} loading="lazy" decoding="async" />
         </div>
       </div>
 
@@ -606,7 +610,7 @@ function InformationArchitectureSection() {
         <div className="bg-white border border-black rounded-[12px] flex flex-col w-full overflow-hidden hover:bg-[#eee] cursor-default group/ds">
           <div className="border-b border-black">
             <div className="aspect-[846/430] relative w-full">
-              <img alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" src={imgProjectDDS} />
+              <img alt="" className="absolute inset-0 w-full h-full object-cover pointer-events-none" src={imgProjectDDS} loading="lazy" decoding="async" />
             </div>
           </div>
           <div className="flex flex-col gap-3 p-4 text-black group-hover/ds:text-[#333] transition-colors">
