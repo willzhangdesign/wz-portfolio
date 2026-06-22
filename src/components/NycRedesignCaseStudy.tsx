@@ -223,7 +223,7 @@ function BrandDesignSection() {
   const video2 = useHoverVideo();
 
   return (
-    <div id="brand-design" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
+    <div id="brand-design" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Brand design" />
 
       {/* North star quote */}
@@ -535,7 +535,7 @@ function CarouselSubsection() {
 
 function InformationArchitectureSection() {
   return (
-    <div id="information-architecture" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
+    <div id="information-architecture" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Information architecture" />
 
       {/* Parking ticket */}

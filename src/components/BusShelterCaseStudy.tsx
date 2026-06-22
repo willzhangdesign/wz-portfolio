@@ -27,6 +27,8 @@ import imgShelterSA from "../assets/rtpi-shelter/RTPI_ShelterP2 - UI - SA.png";
 import imgTTSBefore from "../assets/rtpi-shelter/RTPI_Shelter-TTS-before.png";
 import imgTTSAfter from "../assets/rtpi-shelter/RTPI_Shelter-TTS-after.png";
 import imgFinalSA from "../assets/rtpi-shelter/RTPI_Shelter_Final-SA.mov";
+import imgDemo1 from "../assets/rtpi-shelter/RTPI_Shelter_Demo1.png";
+import imgDemo3 from "../assets/rtpi-shelter/RTPI_Shelter_Demo3.png";
 import imgProjectRTPI from "../assets/home/projCard-RTPI.png";
 import imgProjectNyc from "../assets/home/projCard-nycRedesign.png";
 
@@ -204,7 +206,7 @@ function ProcessSection() {
 
 function FieldResearchSection() {
   return (
-    <div id="field-research" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
+    <div id="field-research" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Field research" />
 
       <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
@@ -238,7 +240,7 @@ function FieldResearchSection() {
 function DesignSystemAdherenceSection() {
 
   return (
-    <div id="design-system-adherence" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
+    <div id="design-system-adherence" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Design System Adherence" />
 
       {/* Countdown clocks */}
@@ -304,13 +306,13 @@ function DesignSystemAdherenceSection() {
 
 function InformationHierarchySection() {
   return (
-    <div id="information-hierarchy" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
+    <div id="information-hierarchy" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={3} title="Information hierarchy and prioritization" />
 
       {/* Prototype explorations */}
       <div className="flex flex-col gap-6 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
-          We worked with the Mayor's Office for People with Disabilities to explore animations that are clear for people with vision or intellectual disabilities.
+          The Mayor's Office for People with Disabilities gave feedback to minimize animation movement as much as possible.
         </p>
         <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
@@ -340,6 +342,7 @@ function InformationHierarchySection() {
             The start and end of a paging animation are difficult to track, and may confuse riders
           </p>
         </div>
+
       </div>
 
       {/* Final design */}
@@ -356,7 +359,7 @@ function InformationHierarchySection() {
           </p>
         </div>
 
-        {/* SA design — autoplays */}
+        {/* Final design — autoplays */}
         <div className="bg-black rounded-[12px] p-8 w-full">
           <video className="block w-full rounded-[8px]" src={imgFinalSA} autoPlay muted loop playsInline preload="metadata" />
         </div>
@@ -387,8 +390,6 @@ function FinalOutcomesSection() {
         title="Designed a clear and concise experience for bus shelters that are accessible to all New Yorkers, coming to 90 shelters in 2026."
       />
 
-      {/* TODO: 3 outdoor photo assets (IMG_5406 2, IMG_5421 2, IMG_5406 3) not yet in assets folder */}
-
       <div className="flex flex-col gap-5 w-full">
         <OutcomeCard title="Improved display technology">
           <p>New displays are higher-resolution and brighter, <strong>making information clear and visible</strong> in the sun glare and at night.</p>
@@ -400,6 +401,13 @@ function FinalOutcomesSection() {
           <p>We focused on the 3 things riders needed – bus route, destination, and time – and made the design as <strong>simple and clear as possible</strong>.</p>
         </OutcomeCard>
       </div>
+
+      <ImageRow
+        images={[
+          { src: imgDemo1, alt: "New bus shelter display deployed outdoors" },
+          { src: imgDemo3, alt: "Close-up of new bus shelter RTPI display at night" },
+        ]}
+      />
     </div>
   );
 }
