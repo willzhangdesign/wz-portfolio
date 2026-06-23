@@ -26,9 +26,9 @@ export function HomePage() {
             </div>
 
             <div className="flex gap-4 items-center whitespace-nowrap font-['Satoshi',sans-serif] typo-body">
-              <AnimatedLink href="mailto:will@wizdesign.studio" className="underline shrink-0">Email</AnimatedLink>
+              <AnimatedLink href="mailto:will@willzhang.design" className="underline shrink-0">Email</AnimatedLink>
               <span className="shrink-0">/</span>
-              <AnimatedLink href="https://drive.google.com/file/d/1mNlVkRJaZU6q9Jya5UTzu077G0unlF9Y/view?usp=sharing" external className="underline shrink-0">Resume</AnimatedLink>
+              <AnimatedLink href="https://drive.google.com/file/d/1JWV-7mHHV336bQQTnCYB5BtklalTCFlb/view?usp=sharing" external className="underline shrink-0">Resume</AnimatedLink>
               <span className="shrink-0">/</span>
               <AnimatedLink href="https://www.linkedin.com/in/wizdesign/" external className="underline shrink-0">LinkedIn</AnimatedLink>
             </div>
