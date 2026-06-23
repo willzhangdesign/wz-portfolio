@@ -76,8 +76,7 @@ export function HomePage() {
         description="First design system for NYC government capable of scaling with multitudes of different service and product contexts. Currently in city-wide adoption and scaling."
         image={imgProject02}
         innerShadow
-        tag="Coming soon"
-        disabled
+        href="/case-study/design-system"
       />
       <ProjectCard
         title="Showing every New Yorker when their bus is coming"
