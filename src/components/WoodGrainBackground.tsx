@@ -126,7 +126,7 @@ function drawAnimated(ctx: CanvasRenderingContext2D, s: State) {
 }
 
 function calcOffset(
-  pos: number, crossPos: number, linePos: number,
+  pos: number, linePos: number,
   mouseMain: number, mouseCross: number, time: number,
 ) {
   const dx = mouseMain - linePos;
@@ -162,7 +162,7 @@ function drawVerticalPath(ctx: CanvasRenderingContext2D, x: number, s: State) {
   let prevOff = 0;
   for (let i = 1; i <= SEGMENTS; i++) {
     const y = i * step;
-    const off = calcOffset(y, x, x, s.mouseX, s.mouseY, s.time);
+    const off = calcOffset(y, x, s.mouseX, s.mouseY, s.time);
     const cy1 = (i - 1) * step + step / 3;
     const cy2 = y - step / 3;
     ctx.bezierCurveTo(x + prevOff, cy1, x + off, cy2, x + off, y);
@@ -176,7 +176,7 @@ function drawHorizontalPath(ctx: CanvasRenderingContext2D, y: number, s: State) 
   let prevOff = 0;
   for (let i = 1; i <= SEGMENTS; i++) {
     const x = i * step;
-    const off = calcOffset(x, y, y, s.mouseY, s.mouseX, s.time);
+    const off = calcOffset(x, y, s.mouseY, s.mouseX, s.time);
     const cx1 = (i - 1) * step + step / 3;
     const cx2 = x - step / 3;
     ctx.bezierCurveTo(cx1, y + prevOff, cx2, y + off, x, y + off);

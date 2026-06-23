@@ -21,7 +21,6 @@ import imgTouchpoints from "../assets/nyc-redesign/touchpoints.png";
 import imgParkingTicket from "../assets/nyc-redesign/nycRedesign_ParkingTicket.png";
 import imgNavLabeled from "../assets/nyc-redesign/nav-labled.png";
 import imgProjectRTPI from "../assets/home/projCard-RTPI.png";
-import imgProjectShelter from "../assets/home/RTPI_Hero-shelter.png";
 import imgProjectDDS from "../assets/home/projCard-DDS.png";
 import imgProblemGraphic1 from "../assets/nyc-redesign/nycRedesign_problem-graphic1.png";
 import imgProblemGraphic2 from "../assets/nyc-redesign/nycRedesign_problem-graphic2.png";
