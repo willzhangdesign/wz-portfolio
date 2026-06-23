@@ -28,6 +28,8 @@ import imgBrandFoundation from "../assets/design-system/designSystem_BrandFounda
 import imgUserStory1 from "../assets/design-system/designSystem_UserStory 1.png";
 import imgUserStory2 from "../assets/design-system/designSystem_UserStory 2.png";
 import imgUserStory3 from "../assets/design-system/designSystem_UserStory 3.png";
+import imgMediaCredit1 from "../assets/nyc-redesign/media-credit-1.png";
+import imgMediaCredit2 from "../assets/nyc-redesign/media-credit-2.png";
 import imgProjectRTPI from "../assets/home/projCard-RTPI.png";
 import imgProjectShelter from "../assets/home/RTPI_Hero-shelter.png";
 
@@ -429,6 +431,11 @@ function BrandFoundationsSection() {
         <p className="typo-body text-black w-full max-w-[860px]">
           To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.
         </p>
+
+        <div className="flex flex-col sm:flex-row gap-6 w-full">
+          <img alt="Media credit component example 1" className="block w-full rounded-[12px]" src={imgMediaCredit1} loading="lazy" decoding="async" />
+          <img alt="Media credit component example 2" className="block w-full rounded-[12px]" src={imgMediaCredit2} loading="lazy" decoding="async" />
+        </div>
       </div>
 
       {/* Color palette */}

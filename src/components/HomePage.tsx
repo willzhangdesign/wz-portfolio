@@ -63,7 +63,7 @@ export function HomePage() {
       <ProjectCard
         title="NYC Design System"
         organization="Office of Technology and Innovation"
-        timeframe="2025—Present"
+        timeframe="2024–2025"
         description="First design system for NYC government capable of scaling with multitudes of different service and product contexts. Currently in city-wide adoption and scaling."
         image={imgProject02}
         innerShadow
