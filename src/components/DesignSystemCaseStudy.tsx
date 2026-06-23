@@ -428,13 +428,14 @@ function BrandFoundationsSection() {
           </p>
         </div>
 
-        <p className="typo-body text-black w-full max-w-[860px]">
-          To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-6 w-full">
-          <img alt="Media credit component example 1" className="block w-full rounded-[12px]" src={imgMediaCredit1} loading="lazy" decoding="async" />
-          <img alt="Media credit component example 2" className="block w-full rounded-[12px]" src={imgMediaCredit2} loading="lazy" decoding="async" />
+        <div className="flex flex-col sm:flex-row gap-[40px] sm:gap-[64px] items-start w-full">
+          <div className="flex-1 typo-body text-black">
+            <p>To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.</p>
+          </div>
+          <div className="flex-1 flex flex-row gap-[16px] items-start justify-center">
+            <img alt="Media credit component example 1" className="w-full max-w-[220px] h-auto rounded-[12px]" src={imgMediaCredit1} loading="lazy" decoding="async" />
+            <img alt="Media credit component example 2" className="w-full max-w-[220px] h-auto rounded-[12px]" src={imgMediaCredit2} loading="lazy" decoding="async" />
+          </div>
         </div>
       </div>
 
