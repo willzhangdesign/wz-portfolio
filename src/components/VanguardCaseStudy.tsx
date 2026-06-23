@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { WoodGrainBackground } from "./WoodGrainBackground";
-
 const PASSWORD = "vanguard2022";
 
 export function VanguardCaseStudy() {
@@ -21,7 +19,6 @@ export function VanguardCaseStudy() {
 
   return (
     <div className="w-full h-screen bg-white overflow-hidden">
-      <WoodGrainBackground />
       <div className="page-shell-body fixed top-[12px] bottom-[12px] sm:top-[16px] sm:bottom-[16px] left-1/2 -translate-x-1/2 w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] rounded-[8px] overflow-y-auto overflow-x-hidden flex flex-col items-center justify-center">
         <form
           onSubmit={handleSubmit}

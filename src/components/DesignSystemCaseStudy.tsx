@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   PageShell,
   Divider,
@@ -257,7 +257,7 @@ function VisualDirectionSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 1</p>
               <p className="typo-intro font-bold text-black">"Architectural grit"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video1.videoRef} autoPlay loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
+                <video ref={video1.videoRef} loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the city's built environment and gravitas, through liberty green, sharp edges, textures, and bold typographic hierarchy.
@@ -276,7 +276,7 @@ function VisualDirectionSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 2</p>
               <p className="typo-intro font-bold text-black">"Approachable spaces"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video2.videoRef} autoPlay loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
+                <video ref={video2.videoRef} loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the intimate, local experience of living here, through warm golden hour colors, serif typography, and a friendlier tone.
@@ -329,16 +329,21 @@ const notoLanguages = [
 
 function NotoSansCard() {
   const [index, setIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((i) => (i + 1) % notoLanguages.length);
-    }, 2500);
-    return () => clearInterval(interval);
+    const el = containerRef.current;
+    if (!el) return;
+    let interval: ReturnType<typeof setInterval> | null = null;
+    const start = () => { if (!interval) interval = setInterval(() => setIndex((i) => (i + 1) % notoLanguages.length), 2500); };
+    const stop = () => { if (interval) { clearInterval(interval); interval = null; } };
+    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) start(); else stop(); }, { threshold: 0.25 });
+    observer.observe(el);
+    return () => { observer.disconnect(); stop(); };
   }, []);
 
   return (
-    <div className="flex-1 flex flex-col gap-3">
+    <div ref={containerRef} className="flex-1 flex flex-col gap-3">
       <p className="typo-caption font-medium text-[#666]">Body font</p>
       <p className="typo-intro font-bold text-black">Noto Sans</p>
       <div className="bg-black rounded-[8px] p-6 flex-1 min-h-[280px] flex items-center">

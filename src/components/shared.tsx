@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from "react";
+import { useRef, useEffect, type ReactNode } from "react";
 import { Link } from "react-router";
 import { WoodGrainBackground } from "./WoodGrainBackground";
 import imgLogoBlack from "../assets/home/logo-black.png";
@@ -20,11 +20,8 @@ export function PageShell({
   const isCaseStudy = variant === "case-study";
 
   if (isCaseStudy) {
-    // Case-study layout: card is a fixed, internally-scrolling container.
-    // 24px gap on top/bottom shows the WoodGrainBackground; window never scrolls.
     return (
       <div className="w-full h-screen bg-white overflow-hidden">
-        <WoodGrainBackground />
         <div className="page-shell-body fixed top-[12px] bottom-[12px] sm:top-[16px] sm:bottom-[16px] left-1/2 -translate-x-1/2 w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] rounded-[8px] overflow-y-auto overflow-x-hidden flex flex-col items-center">
           {header}
           <div className="flex flex-col gap-8 sm:gap-16 items-center w-full max-w-[1200px] p-[2vh] sm:p-[3.5vh]">
@@ -262,11 +259,29 @@ export function RelatedProjectCard({
   );
 }
 
-/* ── Hover-to-play video hook ── */
+/* ── Hover-to-play video hook (pauses when scrolled out of view) ── */
 
 export function useHoverVideo() {
   const ref = useRef<HTMLVideoElement>(null);
-  const play = () => ref.current?.play();
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const play = () => ref.current?.play().catch(() => {});
   const pause = () => {
     if (ref.current) {
       ref.current.pause();
@@ -282,4 +297,29 @@ export function useHoverVideo() {
       onBlur: pause,
     },
   };
+}
+
+/* ── Intersection-driven autoplay hook ── */
+
+export function useVideoIntersection(threshold = 0.25) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return ref;
 }

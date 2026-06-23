@@ -9,6 +9,7 @@ import {
   InfoCard,
   JumpLink,
   RelatedProjectCard,
+  useVideoIntersection,
 } from "./shared";
 import { CaseStudyHeader } from "./CaseStudyHeader";
 import { AnimatedLink } from "./AnimatedLink";
@@ -305,6 +306,10 @@ function DesignSystemAdherenceSection() {
 /* ── 3. Information hierarchy ── */
 
 function InformationHierarchySection() {
+  const videoScrolling = useVideoIntersection();
+  const videoPaging = useVideoIntersection();
+  const videoFinal = useVideoIntersection();
+
   return (
     <div id="information-hierarchy" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
       <SectionNumber number={3} title="Information hierarchy and prioritization" />
@@ -326,7 +331,7 @@ function InformationHierarchySection() {
         {/* Scrolling prototype — autoplays */}
         <div className="bg-black rounded-[12px] p-8 flex flex-col gap-4 w-full">
           <div className="rounded-[8px] overflow-hidden">
-            <video className="block w-full" src={imgPrototypeScrolling} autoPlay muted loop playsInline preload="metadata" />
+            <video ref={videoScrolling} className="block w-full" src={imgPrototypeScrolling} muted loop playsInline preload="auto" />
           </div>
           <p className="typo-body text-white">
             Horizontal scrolling text is visually busy and hard to read, increasing cognitive load
@@ -336,7 +341,7 @@ function InformationHierarchySection() {
         {/* Paging prototype — autoplays */}
         <div className="bg-black rounded-[12px] p-8 flex flex-col gap-4 w-full">
           <div className="rounded-[8px] overflow-hidden">
-            <video className="block w-full" src={imgPrototypePaging} autoPlay muted loop playsInline preload="metadata" />
+            <video ref={videoPaging} className="block w-full" src={imgPrototypePaging} muted loop playsInline preload="auto" />
           </div>
           <p className="typo-body text-white">
             The start and end of a paging animation are difficult to track, and may confuse riders
@@ -361,7 +366,7 @@ function InformationHierarchySection() {
 
         {/* Final design — autoplays */}
         <div className="bg-black rounded-[12px] p-8 w-full">
-          <video className="block w-full rounded-[8px]" src={imgFinalSA} autoPlay muted loop playsInline preload="metadata" />
+          <video ref={videoFinal} className="block w-full rounded-[8px]" src={imgFinalSA} muted loop playsInline preload="auto" />
         </div>
 
         {/* Labeled final design — full width */}
