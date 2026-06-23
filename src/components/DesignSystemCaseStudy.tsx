@@ -46,7 +46,7 @@ function TitleSection() {
             A New Yorker testing the old nyc.gov asked us a simple question: was the site for New Yorkers, or for the people who work for the government?
           </p>
           <p className="mb-4">
-            It looked bureaucratic, dated, impersonal, and unsure of who it served. As we rebuilt nyc.gov from the ground up, we started with new brand foundations in color, typefaces, and imagery that would make 1.8 million monthly visitors feel the city was built for them.
+            It looked bureaucratic, dated, impersonal, and unsure of who it served. As we rebuilt nyc.gov from the ground up, we started with new brand foundations in color, typefaces, and imagery that would make 1.8 million monthly visitors feel the website was designed for them.
           </p>
           <p>
             I then carried those foundations into a{" "}
