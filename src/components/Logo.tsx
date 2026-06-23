@@ -1,6 +1,6 @@
 import { useState } from "react";
 import imgLogoBlack from "../assets/home/logo-black.png";
-import imgLogoGif from "../assets/_unused/logo-gif-black.gif";
+import imgLogoGif from "../assets/home/logo-gif-black.gif";
 
 interface LogoProps {
   /**

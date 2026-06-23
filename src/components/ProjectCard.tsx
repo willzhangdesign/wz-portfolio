@@ -1,5 +1,7 @@
 import { Link } from "react-router";
 
+const INNER_SHADOW_STYLE = { boxShadow: "inset 0px 0px 10px 5px rgba(182, 219, 255, 0.15)" } as const;
+
 interface ProjectCardProps {
   title: string;
   organization: string;
@@ -51,7 +53,7 @@ export function ProjectCard({ title, organization, timeframe, description, image
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 rounded-[8px] pointer-events-none"
-                  style={{ boxShadow: "inset 0px 0px 10px 5px rgba(182, 219, 255, 0.15)" }}
+                  style={INNER_SHADOW_STYLE}
                 />
               )}
             </div>

@@ -28,10 +28,9 @@ import imgBrandFoundation from "../assets/design-system/designSystem_BrandFounda
 import imgUserStory1 from "../assets/design-system/designSystem_UserStory 1.png";
 import imgUserStory2 from "../assets/design-system/designSystem_UserStory 2.png";
 import imgUserStory3 from "../assets/design-system/designSystem_UserStory 3.png";
-import imgMediaCredit1 from "../assets/nyc-redesign/media-credit-1.png";
-import imgMediaCredit2 from "../assets/nyc-redesign/media-credit-2.png";
+import imgMediaCreditPhoto from "../assets/design-system/media-credit-photo.png";
+import imgProjectNycRedesign from "../assets/home/projCard-nycRedesign.png";
 import imgProjectRTPI from "../assets/home/projCard-RTPI.png";
-import imgProjectShelter from "../assets/home/RTPI_Hero-shelter.png";
 
 /* ── Title + intro ── */
 
@@ -367,6 +366,43 @@ function NotoSansCard() {
   );
 }
 
+/* ── Media credit demo ── */
+
+function MediaCreditDemo({ defaultExpanded = false }: { defaultExpanded?: boolean }) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
+
+  return (
+    <div className="relative w-full rounded-[8px] overflow-hidden">
+      <img
+        alt="Two people sitting inside a metallic public art installation in NYC"
+        className="block w-full h-auto"
+        src={imgMediaCreditPhoto}
+      />
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="absolute bottom-2 right-2 h-8 bg-black/70 backdrop-blur-sm border border-[#555] rounded-[6px] flex items-center cursor-pointer hover:bg-black/85 transition-all"
+        aria-label="Image credits"
+        aria-expanded={expanded}
+      >
+        {expanded ? (
+          <>
+            <span className="text-white text-[11px] whitespace-nowrap pl-2.5 pr-1">Photo by Jane Doe</span>
+            <span className="border-l border-white/30 h-full flex items-center px-1.5">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </span>
+          </>
+        ) : (
+          <span className="w-8 h-8 flex items-center justify-center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.5 2.625H4.5C4.00272 2.625 3.52581 2.82254 3.17417 3.17417C2.82254 3.52581 2.625 4.00272 2.625 4.5V19.5C2.625 19.9973 2.82254 20.4742 3.17417 20.8258C3.52581 21.1775 4.00272 21.375 4.5 21.375H19.5C19.9973 21.375 20.4742 21.1775 20.8258 20.8258C21.1775 20.4742 21.375 19.9973 21.375 19.5V4.5C21.375 4.00272 21.1775 3.52581 20.8258 3.17417C20.4742 2.82254 19.9973 2.625 19.5 2.625ZM19.125 4.875V10.8488L17.4506 9.17438C17.099 8.82287 16.6222 8.6254 16.125 8.6254C15.6278 8.6254 15.151 8.82287 14.7994 9.17438L4.875 19.0988V4.875H19.125ZM8.03063 19.125L16.125 11.0306L19.125 14.0306V19.125H8.03063ZM7.125 9C7.125 8.62916 7.23497 8.26665 7.44099 7.95831C7.64702 7.64996 7.93986 7.40964 8.28247 7.26773C8.62508 7.12581 9.00208 7.08868 9.36579 7.16103C9.72951 7.23337 10.0636 7.41195 10.3258 7.67417C10.588 7.9364 10.7666 8.27049 10.839 8.63421C10.9113 8.99792 10.8742 9.37492 10.7323 9.71753C10.5904 10.0601 10.35 10.353 10.0417 10.559C9.73335 10.765 9.37084 10.875 9 10.875C8.50272 10.875 8.02581 10.6775 7.67417 10.3258C7.32254 9.97419 7.125 9.49728 7.125 9Z" fill="white"/>
+            </svg>
+          </span>
+        )}
+      </button>
+    </div>
+  );
+}
+
 /* ── 2. Brand foundations ── */
 
 function BrandFoundationsSection() {
@@ -433,13 +469,12 @@ function BrandFoundationsSection() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-[40px] sm:gap-[64px] items-start w-full">
-          <div className="flex-1 typo-body text-black">
+        <div className="bg-[#eee] rounded-[8px] p-6 flex flex-col sm:flex-row gap-6 items-center w-full">
+          <div className="typo-body text-black sm:w-1/3 shrink-0">
             <p>To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.</p>
           </div>
-          <div className="flex-1 flex flex-row gap-[16px] items-start justify-center">
-            <img alt="Media credit component example 1" className="w-full max-w-[220px] h-auto rounded-[12px]" src={imgMediaCredit1} loading="lazy" decoding="async" />
-            <img alt="Media credit component example 2" className="w-full max-w-[220px] h-auto rounded-[12px]" src={imgMediaCredit2} loading="lazy" decoding="async" />
+          <div className="sm:w-2/3 min-w-0">
+            <MediaCreditDemo />
           </div>
         </div>
       </div>
@@ -575,16 +610,16 @@ function RelatedProjectsSection() {
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
       <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
         <RelatedProjectCard
+          to="/case-study/nyc-redesign"
+          image={imgProjectNycRedesign}
+          title="nyc.gov Redesign"
+          description="The 2025 nyc.gov redesign is the first major overhaul of the city's website in over a decade, making nyc.gov more trustworthy, accessible, and future-forward."
+        />
+        <RelatedProjectCard
           to="/case-study/rtpi-pole"
           image={imgProjectRTPI}
           title="Bus pole RTPI design"
           description="Designed a new scalable, accessible real-time passenger information (RTPI) system for bus poles that clearly communicates bus arrivals and feels like a cohesive part of NYC's transit network."
-        />
-        <RelatedProjectCard
-          to="/case-study/bus-shelter"
-          image={imgProjectShelter}
-          title="Bus shelter RTPI design"
-          description="Designed a clear and concise UI system and experience for bus shelters that are accessible and familiar to all New Yorkers."
         />
       </div>
     </div>

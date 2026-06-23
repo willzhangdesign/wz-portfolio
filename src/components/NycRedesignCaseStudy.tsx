@@ -22,6 +22,7 @@ import imgParkingTicket from "../assets/nyc-redesign/nycRedesign_ParkingTicket.p
 import imgNavLabeled from "../assets/nyc-redesign/nav-labled.png";
 import imgProjectRTPI from "../assets/home/projCard-RTPI.png";
 import imgProjectShelter from "../assets/home/RTPI_Hero-shelter.png";
+import imgProjectDDS from "../assets/home/projCard-DDS.png";
 import imgProblemGraphic1 from "../assets/nyc-redesign/nycRedesign_problem-graphic1.png";
 import imgProblemGraphic2 from "../assets/nyc-redesign/nycRedesign_problem-graphic2.png";
 import imgProblemGraphic3 from "../assets/nyc-redesign/nycRedesign_problem-graphic3.png";
@@ -379,16 +380,16 @@ function RelatedProjectsSection() {
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
       <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
         <RelatedProjectCard
+          to="/case-study/design-system"
+          image={imgProjectDDS}
+          title="NYC Design System"
+          description="First design system for NYC government capable of scaling with multitudes of different service and product contexts. Currently in city-wide adoption and scaling."
+        />
+        <RelatedProjectCard
           to="/case-study/rtpi-pole"
           image={imgProjectRTPI}
           title="Bus pole RTPI design"
           description="Designed a new scalable, accessible real-time passenger information (RTPI) system for bus poles that clearly communicates bus arrivals and feels like a cohesive part of NYC's transit network."
-        />
-        <RelatedProjectCard
-          to="/case-study/bus-shelter"
-          image={imgProjectShelter}
-          title="Bus shelter RTPI design"
-          description="Redesigned the RTPI display interface for over 3000 bus shelters across the 5 boroughs to improve find-ability and usability for New Yorkers with disabilities."
         />
       </div>
     </div>

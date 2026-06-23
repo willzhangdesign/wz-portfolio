@@ -72,7 +72,7 @@ export function HomePage() {
       <ProjectCard
         title="nyc.gov Redesign"
         organization="Office of Technology and Innovation"
-        timeframe="2024–2025"
+        timeframe="2023–2024"
         description="The 2025 nyc.gov redesign is the first major overhaul of the city's website in over a decade. The redesign makes nyc.gov more trustworthy, accessible, and future-forward. It is the blueprint to make all NYC websites easier for everyone."
         image={imgProject01}
         href="/case-study/nyc-redesign"

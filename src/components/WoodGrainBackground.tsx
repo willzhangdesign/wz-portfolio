@@ -1,261 +1,185 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-export function WoodGrainBackground() {
-  const strokeWidth = 1;
-  const animationRadius = 200;
-  const innerRadius = 32;
+const STROKE_COLOR = '#DDDDDD';
+const ANIMATION_RADIUS = 200;
+const INNER_RADIUS = 32;
+const SEGMENTS = 200;
+const TARGET_FPS = 30;
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+const TIME_STEP = 0.07 * (FRAME_INTERVAL / 10);
 
-  const [mousePos, setMousePos] = useState({ x: -1000, y: -1000 });
-  const [time, setTime] = useState(0);
-  const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
-  const [gutterDistance, setGutterDistance] = useState(24);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Track viewport size and update canvas dimensions and gutter
-  useEffect(() => {
-    const updateDimensions = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      setDimensions({ width, height });
-      
-      // Set gutter based on viewport width
-      if (width >= 1024) {
-        setGutterDistance(24);
-      } else {
-        setGutterDistance(16);
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+export function WoodGrainBackground({ isStatic = false }: { isStatic?: boolean } = {}) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const stateRef = useRef({
+    mouseX: -1000,
+    mouseY: -1000,
+    time: 0,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    gutter: window.innerWidth >= 1024 ? 24 : 16,
+  });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({
-        x: e.clientX,
-        y: e.clientY
-      });
-    };
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+    const s = stateRef.current;
+    const dpr = window.devicePixelRatio || 1;
 
-    const handleMouseLeave = () => {
-      setMousePos({ x: -1000, y: -1000 });
-    };
+    function resize() {
+      s.width = window.innerWidth;
+      s.height = window.innerHeight;
+      s.gutter = s.width >= 1024 ? 24 : 16;
+      canvas!.width = s.width * dpr;
+      canvas!.height = s.height * dpr;
+      canvas!.style.width = s.width + 'px';
+      canvas!.style.height = s.height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (isStatic) drawStatic(ctx, s);
+    }
 
-    // Listen on document to ensure events are captured
-    document.addEventListener('mousemove', handleMouseMove);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    
+    resize();
+    window.addEventListener('resize', resize);
+
+    if (isStatic) {
+      drawStatic(ctx, s);
+      return () => window.removeEventListener('resize', resize);
+    }
+
+    function onMouseMove(e: MouseEvent) {
+      s.mouseX = e.clientX;
+      s.mouseY = e.clientY;
+    }
+    function onMouseLeave() {
+      s.mouseX = -1000;
+      s.mouseY = -1000;
+    }
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseleave', onMouseLeave);
+
+    let lastFrame = 0;
+    let rafId = 0;
+
+    function tick(now: number) {
+      rafId = requestAnimationFrame(tick);
+      if (now - lastFrame < FRAME_INTERVAL) return;
+      lastFrame = now;
+      s.time += TIME_STEP;
+      drawAnimated(ctx, s);
+    }
+    rafId = requestAnimationFrame(tick);
+
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', resize);
+      document.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('mouseleave', onMouseLeave);
     };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(prevTime => prevTime + 0.07);
-    }, 10);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Generate vertical lines
-  const verticalLines = [];
-  for (let x = 0; x <= dimensions.width; x += gutterDistance) {
-    verticalLines.push(x);
-  }
-
-  // Generate horizontal lines
-  const horizontalLines = [];
-  for (let y = 0; y <= dimensions.height; y += gutterDistance) {
-    horizontalLines.push(y);
-  }
-
-  // Function to calculate wood grain path for vertical lines
-  const getVerticalPath = (x: number) => {
-    const segments = 200;
-    const stepSize = dimensions.height / segments;
-    let path = `M ${x} 0`;
-    
-    let prevOffset = 0;
-    let prevFrequency = 0;
-
-    for (let i = 1; i <= segments; i++) {
-      const y = i * stepSize;
-      const dx = mousePos.x - x;
-      const dy = mousePos.y - y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      let offset = 0;
-      let frequency = 0;
-      let influence = 0;
-
-      if (distance < animationRadius) {
-        influence = 1 - (distance / animationRadius);
-        influence = influence * influence * (3 - 2 * influence);
-        
-        const angle = Math.atan2(dy, dx);
-        
-        if (distance < innerRadius) {
-          frequency = 0.08;
-        } else {
-          const normalizedDistance = (distance - innerRadius) / (animationRadius - innerRadius);
-          frequency = 0.08 * (1 - normalizedDistance);
-        }
-        
-        const baseAmplitude = influence * 12;
-        const positionSeed = x * 0.01 + y * 0.01;
-        
-        const grainFlow = Math.sin(y * frequency * 0.4 + time * 0.5 + positionSeed) * baseAmplitude * 1.2;
-        const irregularity1 = Math.sin(y * frequency * 0.15 + time * 0.3 + angle * 2 + positionSeed * 1.5) * baseAmplitude * 0.8;
-        const irregularity2 = Math.sin(y * frequency * 0.25 + time * 0.4 + Math.cos(angle * 3) + positionSeed * 2) * baseAmplitude * 0.5;
-        const swirl = Math.sin(angle * 3 + time * 0.6 + distance * 0.05) * baseAmplitude * 0.3 * Math.max(0, 1 - distance / innerRadius);
-        const asymmetric1 = Math.sin(y * frequency * 0.12 + Math.cos(time * 0.35 + positionSeed * 3)) * baseAmplitude * 0.6;
-        const asymmetric2 = Math.cos(y * frequency * 0.18 + Math.sin(time * 0.45 + angle)) * baseAmplitude * 0.4;
-        const detail = Math.sin(y * frequency * 1.5 + time * 0.8 + distance * 0.02) * baseAmplitude * 0.15;
-        
-        offset = grainFlow + irregularity1 + irregularity2 + swirl + asymmetric1 + asymmetric2 + detail;
-      }
-
-      const prevY = (i - 1) * stepSize;
-      const currX = x + offset;
-      const prevX = x + prevOffset;
-      
-      const prevDy = mousePos.y - prevY;
-      const prevDistance = Math.sqrt(dx * dx + prevDy * prevDy);
-      let prevInfluence = 0;
-      if (prevDistance < animationRadius) {
-        prevInfluence = 1 - (prevDistance / animationRadius);
-        prevInfluence = prevInfluence * prevInfluence * (3 - 2 * prevInfluence);
-      }
-      
-      const derivative = Math.cos(y * frequency + time) * frequency * (influence * 12);
-      const prevDerivative = Math.cos(prevY * prevFrequency + time) * prevFrequency * (prevInfluence * 12);
-      
-      const cp1X = prevX + prevDerivative * stepSize / 3;
-      const cp1Y = prevY + stepSize / 3;
-      const cp2X = currX - derivative * stepSize / 3;
-      const cp2Y = y - stepSize / 3;
-      
-      path += ` C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${currX} ${y}`;
-      
-      prevOffset = offset;
-      prevFrequency = frequency;
-    }
-
-    return path;
-  };
-
-  // Function to calculate wood grain path for horizontal lines
-  const getHorizontalPath = (y: number) => {
-    const segments = 200;
-    const stepSize = dimensions.width / segments;
-    let path = `M 0 ${y}`;
-    
-    let prevOffset = 0;
-    let prevFrequency = 0;
-
-    for (let i = 1; i <= segments; i++) {
-      const x = i * stepSize;
-      const dx = mousePos.x - x;
-      const dy = mousePos.y - y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      let offset = 0;
-      let frequency = 0;
-      let influence = 0;
-
-      if (distance < animationRadius) {
-        influence = 1 - (distance / animationRadius);
-        influence = influence * influence * (3 - 2 * influence);
-        
-        const angle = Math.atan2(dy, dx);
-        
-        if (distance < innerRadius) {
-          frequency = 0.08;
-        } else {
-          const normalizedDistance = (distance - innerRadius) / (animationRadius - innerRadius);
-          frequency = 0.08 * (1 - normalizedDistance);
-        }
-        
-        const baseAmplitude = influence * 12;
-        const positionSeed = x * 0.01 + y * 0.01;
-        
-        const grainFlow = Math.sin(x * frequency * 0.4 + time * 0.5 + positionSeed) * baseAmplitude * 1.2;
-        const irregularity1 = Math.sin(x * frequency * 0.15 + time * 0.3 + angle * 2 + positionSeed * 1.5) * baseAmplitude * 0.8;
-        const irregularity2 = Math.sin(x * frequency * 0.25 + time * 0.4 + Math.cos(angle * 3) + positionSeed * 2) * baseAmplitude * 0.5;
-        const swirl = Math.sin(angle * 3 + time * 0.6 + distance * 0.05) * baseAmplitude * 0.3 * Math.max(0, 1 - distance / innerRadius);
-        const asymmetric1 = Math.sin(x * frequency * 0.12 + Math.cos(time * 0.35 + positionSeed * 3)) * baseAmplitude * 0.6;
-        const asymmetric2 = Math.cos(x * frequency * 0.18 + Math.sin(time * 0.45 + angle)) * baseAmplitude * 0.4;
-        const detail = Math.sin(x * frequency * 1.5 + time * 0.8 + distance * 0.02) * baseAmplitude * 0.15;
-        
-        offset = grainFlow + irregularity1 + irregularity2 + swirl + asymmetric1 + asymmetric2 + detail;
-      }
-
-      const prevX = (i - 1) * stepSize;
-      const currY = y + offset;
-      const prevY = y + prevOffset;
-      
-      const prevDx = mousePos.x - prevX;
-      const prevDistance = Math.sqrt(prevDx * prevDx + dy * dy);
-      let prevInfluence = 0;
-      if (prevDistance < animationRadius) {
-        prevInfluence = 1 - (prevDistance / animationRadius);
-        prevInfluence = prevInfluence * prevInfluence * (3 - 2 * prevInfluence);
-      }
-      
-      const derivative = Math.cos(x * frequency + time) * frequency * (influence * 12);
-      const prevDerivative = Math.cos(prevX * prevFrequency + time) * prevFrequency * (prevInfluence * 12);
-      
-      const cp1X = prevX + stepSize / 3;
-      const cp1Y = prevY + prevDerivative * stepSize / 3;
-      const cp2X = x - stepSize / 3;
-      const cp2Y = currY - derivative * stepSize / 3;
-      
-      path += ` C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${x} ${currY}`;
-      
-      prevOffset = offset;
-      prevFrequency = frequency;
-    }
-
-    return path;
-  };
+  }, [isStatic]);
 
   return (
-    <div 
-      ref={containerRef}
+    <canvas
+      ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
-    >
-      <svg
-        width={dimensions.width}
-        height={dimensions.height}
-        xmlns="http://www.w3.org/2000/svg"
-        className="block"
-      >
-        {/* Vertical lines */}
-        {verticalLines.map((x, index) => (
-          <path
-            key={`vertical-${index}`}
-            d={getVerticalPath(x)}
-            stroke="#CCCCCC"
-            strokeWidth={strokeWidth}
-            fill="none"
-          />
-        ))}
-
-        {/* Horizontal lines */}
-        {horizontalLines.map((y, index) => (
-          <path
-            key={`horizontal-${index}`}
-            d={getHorizontalPath(y)}
-            stroke="#CCCCCC"
-            strokeWidth={strokeWidth}
-            fill="none"
-          />
-        ))}
-      </svg>
-    </div>
+    />
   );
+}
+
+interface State {
+  mouseX: number; mouseY: number; time: number;
+  width: number; height: number; gutter: number;
+}
+
+function drawStatic(ctx: CanvasRenderingContext2D, s: State) {
+  ctx.clearRect(0, 0, s.width, s.height);
+  ctx.strokeStyle = STROKE_COLOR;
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  for (let x = 0; x <= s.width; x += s.gutter) {
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, s.height);
+  }
+  for (let y = 0; y <= s.height; y += s.gutter) {
+    ctx.moveTo(0, y);
+    ctx.lineTo(s.width, y);
+  }
+  ctx.stroke();
+}
+
+function drawAnimated(ctx: CanvasRenderingContext2D, s: State) {
+  ctx.clearRect(0, 0, s.width, s.height);
+  ctx.strokeStyle = STROKE_COLOR;
+  ctx.lineWidth = 1;
+
+  // vertical lines
+  for (let x = 0; x <= s.width; x += s.gutter) {
+    ctx.beginPath();
+    drawVerticalPath(ctx, x, s);
+    ctx.stroke();
+  }
+  // horizontal lines
+  for (let y = 0; y <= s.height; y += s.gutter) {
+    ctx.beginPath();
+    drawHorizontalPath(ctx, y, s);
+    ctx.stroke();
+  }
+}
+
+function calcOffset(
+  pos: number, crossPos: number, linePos: number,
+  mouseMain: number, mouseCross: number, time: number,
+) {
+  const dx = mouseMain - linePos;
+  const dy = mouseCross - pos;
+  const dist = Math.sqrt(dx * dx + dy * dy);
+  if (dist >= ANIMATION_RADIUS) return 0;
+
+  let influence = 1 - dist / ANIMATION_RADIUS;
+  influence = influence * influence * (3 - 2 * influence);
+  const angle = Math.atan2(dy, dx);
+
+  const freq = dist < INNER_RADIUS
+    ? 0.08
+    : 0.08 * (1 - (dist - INNER_RADIUS) / (ANIMATION_RADIUS - INNER_RADIUS));
+
+  const amp = influence * 12;
+  const seed = linePos * 0.01 + pos * 0.01;
+
+  return (
+    Math.sin(pos * freq * 0.4 + time * 0.5 + seed) * amp * 1.2 +
+    Math.sin(pos * freq * 0.15 + time * 0.3 + angle * 2 + seed * 1.5) * amp * 0.8 +
+    Math.sin(pos * freq * 0.25 + time * 0.4 + Math.cos(angle * 3) + seed * 2) * amp * 0.5 +
+    Math.sin(angle * 3 + time * 0.6 + dist * 0.05) * amp * 0.3 * Math.max(0, 1 - dist / INNER_RADIUS) +
+    Math.sin(pos * freq * 0.12 + Math.cos(time * 0.35 + seed * 3)) * amp * 0.6 +
+    Math.cos(pos * freq * 0.18 + Math.sin(time * 0.45 + angle)) * amp * 0.4 +
+    Math.sin(pos * freq * 1.5 + time * 0.8 + dist * 0.02) * amp * 0.15
+  );
+}
+
+function drawVerticalPath(ctx: CanvasRenderingContext2D, x: number, s: State) {
+  const step = s.height / SEGMENTS;
+  ctx.moveTo(x, 0);
+  let prevOff = 0;
+  for (let i = 1; i <= SEGMENTS; i++) {
+    const y = i * step;
+    const off = calcOffset(y, x, x, s.mouseX, s.mouseY, s.time);
+    const cy1 = (i - 1) * step + step / 3;
+    const cy2 = y - step / 3;
+    ctx.bezierCurveTo(x + prevOff, cy1, x + off, cy2, x + off, y);
+    prevOff = off;
+  }
+}
+
+function drawHorizontalPath(ctx: CanvasRenderingContext2D, y: number, s: State) {
+  const step = s.width / SEGMENTS;
+  ctx.moveTo(0, y);
+  let prevOff = 0;
+  for (let i = 1; i <= SEGMENTS; i++) {
+    const x = i * step;
+    const off = calcOffset(x, y, y, s.mouseY, s.mouseX, s.time);
+    const cx1 = (i - 1) * step + step / 3;
+    const cx2 = x - step / 3;
+    ctx.bezierCurveTo(cx1, y + prevOff, cx2, y + off, x, y + off);
+    prevOff = off;
+  }
 }

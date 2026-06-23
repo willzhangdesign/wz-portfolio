@@ -1,7 +1,6 @@
 import { useRef, useEffect, type ReactNode } from "react";
 import { Link } from "react-router";
 import { WoodGrainBackground } from "./WoodGrainBackground";
-import imgLogoBlack from "../assets/home/logo-black.png";
 
 /* ── Page shell ──
    Wraps every page: wood-grain background + centered card container.
@@ -22,6 +21,7 @@ export function PageShell({
   if (isCaseStudy) {
     return (
       <div className="w-full h-screen bg-white overflow-hidden">
+        <WoodGrainBackground isStatic />
         <div className="page-shell-body fixed top-[12px] bottom-[12px] sm:top-[16px] sm:bottom-[16px] left-1/2 -translate-x-1/2 w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] rounded-[8px] overflow-y-auto overflow-x-hidden flex flex-col items-center">
           {header}
           <div className="flex flex-col gap-8 sm:gap-16 items-center w-full max-w-[1200px] p-[2vh] sm:p-[3.5vh]">
@@ -42,30 +42,6 @@ export function PageShell({
         </div>
       </div>
     </div>
-  );
-}
-
-/* ── Case study logo (links home) ── */
-
-export function CaseStudyLogo() {
-  return (
-    <Link
-      to="/"
-      viewTransition
-      className="block h-16 overflow-clip relative shrink-0 w-[92px]"
-      aria-label="Back to homepage"
-    >
-      <div
-        className="absolute flex items-center justify-center"
-        style={{ width: 100.8, height: 71.8, left: -5.96, top: -4.22 }}
-      >
-        <img
-          alt="Will Zhang Logo"
-          className="w-[91px] h-[51px] rotate-[-14.03deg] object-cover pointer-events-none"
-          src={imgLogoBlack}
-        />
-      </div>
-    </Link>
   );
 }
 
