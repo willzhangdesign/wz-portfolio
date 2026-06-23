@@ -255,7 +255,7 @@ function VisualDirectionSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 1</p>
               <p className="typo-intro font-bold text-black">"Architectural grit"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video1.videoRef} loop muted playsInline preload="metadata" className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
+                <video ref={video1.videoRef} autoPlay loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection1} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the city's built environment and gravitas, through liberty green, sharp edges, textures, and bold typographic hierarchy.
@@ -274,7 +274,7 @@ function VisualDirectionSection() {
               <p className="typo-caption font-bold text-[#666]">Direction 2</p>
               <p className="typo-intro font-bold text-black">"Approachable spaces"</p>
               <div className="h-[500px] rounded-[8px] w-full bg-black overflow-hidden">
-                <video ref={video2.videoRef} loop muted playsInline preload="metadata" className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
+                <video ref={video2.videoRef} autoPlay loop muted playsInline preload="auto" className="w-full h-full object-contain rounded-[8px]" src={imgDirection2} />
               </div>
               <p className="typo-caption text-black">
                 Capturing the intimate, local experience of living here, through warm golden hour colors, serif typography, and a friendlier tone.
@@ -327,15 +327,10 @@ const notoLanguages = [
 
 function NotoSansCard() {
   const [index, setIndex] = useState(0);
-  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFading(true);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % notoLanguages.length);
-        setFading(false);
-      }, 300);
+      setIndex((i) => (i + 1) % notoLanguages.length);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
@@ -345,16 +340,21 @@ function NotoSansCard() {
       <p className="typo-caption font-medium text-[#666]">Body font</p>
       <p className="typo-intro font-bold text-black">Noto Sans</p>
       <div className="bg-black rounded-[8px] p-6 flex-1 min-h-[280px] flex items-center">
-        <p
-          className="text-white text-[24px] font-medium leading-[1.3]"
-          style={{
-            fontFamily: "'Noto Sans', sans-serif",
-            transition: "opacity 0.3s ease",
-            opacity: fading ? 0 : 1,
-          }}
-        >
-          {notoLanguages[index].text}
-        </p>
+        <div className="relative w-full" style={{ height: "8rem" }}>
+          {notoLanguages.map((lang, i) => (
+            <p
+              key={lang.label}
+              className="text-white text-[24px] font-medium leading-[1.3] absolute top-0 left-0 w-full"
+              style={{
+                fontFamily: "'Noto Sans', sans-serif",
+                transition: "opacity 0.3s ease",
+                opacity: i === index ? 1 : 0,
+              }}
+            >
+              {lang.text}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
