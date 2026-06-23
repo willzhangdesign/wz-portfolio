@@ -5,7 +5,6 @@ import { PageShell } from "./shared";
 import imgProject01 from "../assets/home/projCard-nycRedesign.png";
 import imgProject02 from "../assets/home/projCard-DDS.png";
 import imgProject03 from "../assets/home/projCard-RTPI.png";
-import imgProject04 from "../assets/home/projCard-Vanguard.png";
 import imgProject05 from "../assets/home/RTPI_Hero-shelter.png";
 
 export function HomePage() {
@@ -62,21 +61,21 @@ export function HomePage() {
 
       {/* Project Cards */}
       <ProjectCard
-        title="Redesigning NYC government's digital infrastructure"
-        organization="Office of Technology and Innovation"
-        timeframe="2024–2025"
-        description="The 2025 nyc.gov redesign is the first major overhaul of the city's website in over a decade. The redesign makes nyc.gov more trustworthy, accessible, and future-forward. It is the blueprint to make all NYC websites easier for everyone."
-        image={imgProject01}
-        href="/case-study/nyc-redesign"
-      />
-      <ProjectCard
-        title="Creating a design system for every service context"
+        title="NYC Design System"
         organization="Office of Technology and Innovation"
         timeframe="2025—Present"
         description="First design system for NYC government capable of scaling with multitudes of different service and product contexts. Currently in city-wide adoption and scaling."
         image={imgProject02}
         innerShadow
         href="/case-study/design-system"
+      />
+      <ProjectCard
+        title="nyc.gov Redesign"
+        organization="Office of Technology and Innovation"
+        timeframe="2024–2025"
+        description="The 2025 nyc.gov redesign is the first major overhaul of the city's website in over a decade. The redesign makes nyc.gov more trustworthy, accessible, and future-forward. It is the blueprint to make all NYC websites easier for everyone."
+        image={imgProject01}
+        href="/case-study/nyc-redesign"
       />
       <ProjectCard
         title="Showing every New Yorker when their bus is coming"
@@ -93,15 +92,6 @@ export function HomePage() {
         description="Redesigned the RTPI display interface for over 3000 bus shelters across the 5 boroughs to improve find-ability and usability for New Yorkers with disabilities."
         image={imgProject05}
         href="/case-study/bus-shelter"
-      />
-      <ProjectCard
-        title="A simple retirement plan experience without jargon"
-        organization="Vanguard, Retirement Plan Participants"
-        timeframe="2022"
-        description="Designed a new retirement planning service for individual investors that prioritizes financial literacy and fiscal confidence through emotional journey mapping."
-        image={imgProject04}
-        tag="🔒"
-        href="/case-study/vanguard"
       />
     </PageShell>
   );

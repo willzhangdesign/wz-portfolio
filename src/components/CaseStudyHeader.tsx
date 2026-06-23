@@ -8,8 +8,8 @@ interface Section {
 }
 
 const PROJECTS = [
-  { name: "nyc.gov Redesign", path: "/case-study/nyc-redesign" },
   { name: "NYC Design System", path: "/case-study/design-system" },
+  { name: "nyc.gov Redesign", path: "/case-study/nyc-redesign" },
   { name: "Bus pole digital signage", path: "/case-study/rtpi-pole" },
   { name: "Bus shelter digital signage", path: "/case-study/bus-shelter" },
 ];
