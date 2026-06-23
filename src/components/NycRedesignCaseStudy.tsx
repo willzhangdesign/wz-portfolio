@@ -51,7 +51,7 @@ function TitleSection() {
 
         <InfoCard
           items={[
-            { label: "Timeline", content: <p className="font-bold">8 months, 2024</p> },
+            { label: "Timeline", content: <p className="font-bold">6 months, 2023–2024</p> },
             {
               label: "Skills",
               content: <>Product strategy,<br />Product design,<br />UX research</>,
@@ -125,7 +125,7 @@ function ProblemSection() {
             <p>Services were submerged under layers of pages organized around the silos of service owners, punting users around the site and adding unnecessary steps in their journeys.</p>
           </ContentCard>
           <ContentCard title="Dead-end pages">
-            <p>Even when users found the right page, it often lacked clear next steps, leaving them unsure what to do next or where to go, so they read, stalled, and gave up.</p>
+            <p>Even when users found the right page, it often lacked clear next steps, leaving them unsure what to do next or where to go.</p>
           </ContentCard>
           <ContentCard title="Hard to use">
             <p>The site-wide performance score on mobile was <strong>25/100</strong> with many components failing WCAG standards. Most users prefer mobile viewport, and even the top 10 pages on mobile scored 53/100.</p>
@@ -205,7 +205,7 @@ function HelpingFindSection() {
         <div className="flex flex-col min-[900px]:flex-row gap-6 w-full">
           <div className="flex flex-col gap-4 flex-1 min-w-0">
             <p className="typo-body text-black">
-              Before designing anything, we needed to know where people were actually going. The data pointed us to the Department of Education, but they were on a different tech stack and infrastructure and did not have capacity for collaboration.
+              Before designing anything, we needed to know where people were actually going. The data pointed us to the Department of Education, but they were on a different tech stack and infrastructure that created a walled garden for their own products and users, so we decided to revisit collaboration with the DOE later in the future.
             </p>
             <p className="typo-body text-black">
               So in order to move quickly on deciding which top services to feature on the homepage, we went with the next top action: paying a parking ticket. Additional actions included noise complaints, trash and recycling questions, birth certificates, managing SNAP benefits, and others.
