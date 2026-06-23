@@ -59,7 +59,7 @@ function TitleSection() {
 
         <InfoCard
           items={[
-            { label: "Timeline", content: <p className="font-bold">5 months, 2024—2026</p> },
+            { label: "Timeline", content: <p className="font-bold">5 months, 2024—2025</p> },
             { label: "Skills", content: <>Brand strategy,<br />Design system,<br />UX research</> },
             {
               label: "Team",
