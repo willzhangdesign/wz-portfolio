@@ -204,7 +204,7 @@ function ProcessSection() {
 
 function PeerAnalysisSection() {
   return (
-    <div id="peer-analysis" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="peer-analysis" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Peer analysis" />
 
       {/* Two display types */}
@@ -274,7 +274,7 @@ function PeerAnalysisSection() {
 
 function UIDesignSection() {
   return (
-    <div id="ui-design" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="ui-design" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="UI design" />
 
       {/* Hardware constraints */}
@@ -370,7 +370,7 @@ function EndToEndUXSection() {
   const videoAfter = useHoverVideo();
 
   return (
-    <div id="end-to-end-ux" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="end-to-end-ux" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={3} title="End-to-end UX" />
 
       {/* User testing → second screen */}

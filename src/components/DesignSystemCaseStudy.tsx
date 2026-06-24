@@ -209,7 +209,7 @@ function VisualDirectionSection() {
   const video2 = useHoverVideo();
 
   return (
-    <div id="visual-direction" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="visual-direction" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Visual direction" />
 
       {/* Product north star */}
@@ -410,7 +410,7 @@ function BrandFoundationsSection() {
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   return (
-    <div id="brand-foundations" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="brand-foundations" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Brand foundations" />
 
       {/* Typography */}

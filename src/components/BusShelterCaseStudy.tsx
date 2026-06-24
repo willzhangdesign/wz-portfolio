@@ -207,7 +207,7 @@ function ProcessSection() {
 
 function FieldResearchSection() {
   return (
-    <div id="field-research" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="field-research" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Field research" />
 
       <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
@@ -241,7 +241,7 @@ function FieldResearchSection() {
 function DesignSystemAdherenceSection() {
 
   return (
-    <div id="design-system-adherence" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="design-system-adherence" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Design System Adherence" />
 
       {/* Countdown clocks */}
@@ -311,7 +311,7 @@ function InformationHierarchySection() {
   const videoFinal = useVideoIntersection();
 
   return (
-    <div id="information-hierarchy" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="information-hierarchy" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={3} title="Information hierarchy and prioritization" />
 
       {/* Prototype explorations */}

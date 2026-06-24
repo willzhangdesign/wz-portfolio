@@ -194,7 +194,7 @@ function ProcessSection() {
 
 function HelpingFindSection() {
   return (
-    <div id="helping-find" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="helping-find" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={1} title="Helping people find what they need" />
 
       {/* Data analysis */}
@@ -275,7 +275,7 @@ function HomepageSubsection() {
 
 function HelpingFinishSection() {
   return (
-    <div id="helping-finish" className="flex flex-col gap-14 items-start w-full scroll-mt-16">
+    <div id="helping-finish" className="flex flex-col gap-16 items-start w-full scroll-mt-16">
       <SectionNumber number={2} title="Helping people finish the task" />
 
       {/* Parking ticket */}
