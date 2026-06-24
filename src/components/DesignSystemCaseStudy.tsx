@@ -214,7 +214,7 @@ function VisualDirectionSection() {
 
       {/* Product north star */}
       <div className="flex flex-col gap-6 items-start w-full">
-        <p className="typo-h3 font-bold text-black w-full">
+        <p className="typo-h2 font-bold text-black w-full">
           A user told us "It's unclear who this site is for – is it for New Yorkers in general or people that work for the government?".{" "}
           This became our product north star.
         </p>
@@ -232,7 +232,7 @@ function VisualDirectionSection() {
 
       {/* Two directions */}
       <div className="flex flex-col gap-6 items-start w-full">
-        <p className="typo-h3 font-bold text-black w-full">
+        <p className="typo-h2 font-bold text-black w-full">
           From wide explorations, two directions emerged. I focused on developing Direction 2, landing a design language 100% of users called modern, approachable, and official.
         </p>
         <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
