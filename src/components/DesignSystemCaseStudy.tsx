@@ -472,6 +472,7 @@ function BrandFoundationsSection() {
         <div className="bg-[#eee] rounded-[8px] p-6 flex flex-col sm:flex-row gap-6 items-center w-full">
           <div className="typo-body text-black sm:w-1/3 shrink-0">
             <p>To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.</p>
+            <p className="mt-2">Try it out! Click the image icon in the bottom right corner.</p>
           </div>
           <div className="sm:w-2/3 min-w-0">
             <MediaCreditDemo />
