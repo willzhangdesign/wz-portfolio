@@ -4,7 +4,7 @@ import { AnimatedLink } from "./AnimatedLink";
 import { PageShell } from "./shared";
 import imgProject01 from "../assets/home/projCard-nycRedesign.png";
 import imgProject02 from "../assets/home/projCard-DDS.png";
-import imgProject03 from "../assets/home/projCard-RTPI.png";
+import imgProject03 from "../assets/home/RTPI_Hero-Pole.png";
 import imgProject05 from "../assets/home/RTPI_Hero-shelter.png";
 
 export function HomePage() {
