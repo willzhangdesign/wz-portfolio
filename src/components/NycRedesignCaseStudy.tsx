@@ -326,7 +326,7 @@ function HelpingFinishSection() {
           The design system grows with research into end-to-end user journeys and each redesigned service. I go in-depth on my role in the creation of the design system in the case study below:
         </p>
 
-        <Link to="/case-study/nyc-design-system" className="no-underline w-full">
+        <Link to="/case-study/design-system" className="no-underline w-full">
           <div className="bg-white border border-black rounded-[12px] flex flex-col w-full overflow-hidden cursor-pointer group/ds hover:bg-[#222] transition-colors duration-200">
             <div className="border-b border-black">
               <div className="aspect-[846/430] relative w-full bg-white">

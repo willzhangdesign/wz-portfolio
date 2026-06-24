@@ -1,8 +1,21 @@
-import { lazy, Suspense } from "react";
-import { createBrowserRouter } from "react-router";
+import { lazy, Suspense, useEffect } from "react";
+import { createBrowserRouter, useRouteError } from "react-router";
 import { ScrollToTopLayout } from "./components/ScrollToTop";
 import { PasswordGate } from "./components/PasswordGate";
 import { HomePage } from "./components/HomePage";
+
+function ChunkErrorBoundary() {
+  const error = useRouteError() as Error & { name?: string };
+  useEffect(() => {
+    if (
+      error?.message?.includes("Failed to fetch dynamically imported module") ||
+      error?.name === "ChunkLoadError"
+    ) {
+      window.location.reload();
+    }
+  }, [error]);
+  return null;
+}
 
 const NycRedesignCaseStudy = lazy(() => import("./components/NycRedesignCaseStudy").then(m => ({ default: m.NycRedesignCaseStudy })));
 const RtpiPoleCaseStudy = lazy(() => import("./components/RtpiPoleCaseStudy").then(m => ({ default: m.RtpiPoleCaseStudy })));
@@ -17,6 +30,7 @@ function SuspenseWrapper({ children }: { children: React.ReactNode }) {
 export const router = createBrowserRouter([
   {
     Component: ScrollToTopLayout,
+    errorElement: <ChunkErrorBoundary />,
     children: [
       {
         path: "/",
