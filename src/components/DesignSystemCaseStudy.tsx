@@ -107,7 +107,7 @@ function ProblemSection() {
     <div id="problem" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader
         label="PROBLEM"
-        title="nyc.gov looked like bureaucracy, and New Yorkers couldn't tell it was built for them."
+        title="nyc.gov looked like bureaucracy, and New Yorkers could tell it wasn't built for them."
       />
 
       <img alt="Old nyc.gov agency sites showing inconsistent designs" className="block w-full rounded-[12px]" src={imgProblem} loading="lazy" decoding="async" />
