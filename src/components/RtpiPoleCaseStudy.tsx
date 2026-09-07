@@ -234,13 +234,13 @@ function PeerAnalysisSection() {
       {/* Other transit authorities */}
       <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
-          We learned how other complex transit authorities designed their bus pole units through landscape analyses and conversations with digital teams from{" "}
+          Our learnings from a landscape analysis and conversations with digital teams from{" "}
           <AnimatedLink href="https://tid.mbta.com/work/" external className="underline">Massachusetts</AnimatedLink>
           ,{" "}
           <AnimatedLink href="https://www.metro.net/about/organization/#customer-experience" external className="underline">Los Angeles</AnimatedLink>
           , and{" "}
           <AnimatedLink href="https://www.moviatrafik.dk/" external className="underline">Copenhagen</AnimatedLink>
-          . Here were our learnings:
+          :
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
@@ -376,7 +376,7 @@ function EndToEndUXSection() {
       {/* User testing → second screen */}
       <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
-          After conducting user testing at bus stations, rider feedback sent us in a new direction in hardware to show more relevant information about their journeys ahead.
+          30+ live, intercept testing at bus stops uncovered a new user need for more information - foresight data
         </p>
         <div className="typo-body text-black w-full max-w-[860px] leading-[1.4]">
           <p className="mb-4">
