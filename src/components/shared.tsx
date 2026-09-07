@@ -24,7 +24,7 @@ export function PageShell({
         <WoodGrainBackground isStatic />
         <div className="page-shell-body fixed top-[12px] bottom-[12px] sm:top-[16px] sm:bottom-[16px] left-1/2 -translate-x-1/2 w-[1440px] max-w-[calc(100vw-32px)] sm:max-w-[85vw] border border-black bg-[rgba(255,255,255,0.8)] backdrop-blur-[5px] rounded-[8px] overflow-y-auto overflow-x-hidden flex flex-col items-center">
           {header}
-          <div className="flex flex-col gap-8 sm:gap-16 items-center w-full max-w-[1200px] p-[2vh] sm:p-[3.5vh]">
+          <div className="flex flex-col gap-8 sm:gap-24 items-center w-full max-w-[1200px] p-[2vh] sm:p-[3.5vh]">
             {children}
           </div>
         </div>
