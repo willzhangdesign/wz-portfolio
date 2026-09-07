@@ -96,13 +96,13 @@ function ProblemSection() {
       />
 
       {/* User stories */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
         <p className="typo-body text-black w-full max-w-[860px]">
           Picture yourself in the shoes of one of these New Yorkers below:
         </p>
 
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full">
+        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full">
           {[
             { img: imgProblemGraphic1, text: "Helping your immigrant parents to manage SNAP benefits online, but the steps are confusing, filled with jargon, and sprawling" },
             { img: imgProblemGraphic2, text: "Visually impaired and trying to find a community event, but your screen reader is stuck in a carousel reading Eric Adam's \"accomplishments\"" },
@@ -117,10 +117,10 @@ function ProblemSection() {
       </div>
 
       {/* Top pain points */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">Top pain points</p>
 
-        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
+        <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 w-full">
           <ContentCard title="Unclear user flows">
             <p>Services were submerged under layers of pages organized around the silos of service owners, punting users around the site and adding unnecessary steps in their journeys.</p>
           </ContentCard>
@@ -157,7 +157,7 @@ function TopOutcomesSection() {
         decoding="async"
       />
 
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
+      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 w-full">
         <OutcomeCard title="Decreased 311 call center calls for services we redesigned">
           <p><strong>↓ 48%</strong> parking ticket calls<br /><strong>↓ 32%</strong> rent increase calls</p>
         </OutcomeCard>
@@ -198,11 +198,11 @@ function HelpingFindSection() {
       <SectionNumber number={1} title="Helping people find what they need" />
 
       {/* Data analysis */}
-      <div className="flex flex-col gap-6 w-full">
+      <div className="flex flex-col gap-8 w-full">
         <p className="typo-h2 font-bold text-black w-full">
           GA4 data revealed the handful of tasks most New Yorkers come to do.
         </p>
-        <div className="flex flex-col min-[900px]:flex-row gap-6 w-full">
+        <div className="flex flex-col min-[900px]:flex-row gap-8 w-full">
           <div className="flex flex-col gap-4 flex-1 min-w-0">
             <p className="typo-body text-black">
               Before designing anything, we needed to know where people were actually going. The data pointed us to the Department of Education, but they were on a different tech stack and infrastructure that created a walled garden for their own products and users, so we decided to revisit collaboration with the DOE later in the future.
@@ -222,7 +222,7 @@ function HelpingFindSection() {
       </div>
 
       {/* Navigation component */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I designed a global navigation component to help users find services faster across 100+ agency sites
         </p>
@@ -255,7 +255,7 @@ function HelpingFindSection() {
 
 function HomepageSubsection() {
   return (
-    <div className="flex flex-col gap-6 items-start w-full">
+    <div className="flex flex-col gap-8 items-start w-full">
       <p className="typo-h2 font-bold text-black w-full">
         The homepage became the fastest path to the city's most common tasks.
       </p>
@@ -279,7 +279,7 @@ function HelpingFinishSection() {
       <SectionNumber number={2} title="Helping people finish the task" />
 
       {/* Parking ticket */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We restructured the site to make popular services easy to find, follow, and finish, beginning with the most common task: paying a parking ticket.
         </p>
@@ -301,7 +301,7 @@ function HelpingFinishSection() {
       </div>
 
       {/* Guide page */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I designed the first "Guide" page that cut 311 call volume by 48%.
         </p>
@@ -315,7 +315,7 @@ function HelpingFinishSection() {
       </div>
 
       {/* DDS card */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I led the design of a city-wide design system so these wins could scale to every agency.
         </p>
@@ -353,7 +353,7 @@ function FinalOutcomesSection() {
     <div id="final-outcomes" className="flex flex-col gap-10 items-start w-full scroll-mt-16">
       <SectionHeader label="OUTCOMES" title="Real results for real New Yorkers." />
 
-      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 w-full">
+      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 w-full">
         <OutcomeCard title="Decreased 311 call center calls for services we redesigned">
           <p><strong>↓ 48%</strong> parking ticket calls<br /><strong>↓ 32%</strong> rent increase calls</p>
         </OutcomeCard>
@@ -377,7 +377,7 @@ function RelatedProjectsSection() {
   return (
     <div className="flex flex-col gap-10 items-start w-full">
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
-      <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
+      <div className="flex flex-col sm:flex-row gap-8 items-start w-full">
         <RelatedProjectCard
           to="/case-study/design-system"
           image={imgProjectDDS}

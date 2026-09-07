@@ -101,13 +101,13 @@ function ProblemSection() {
       />
 
       {/* User stories */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
         <p className="typo-body text-black w-full max-w-[860px]">
           These are <strong>3 New Yorkers out of the 67+</strong> we spoke to through on-the-ground intercept interviews as well as online user testing.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
           {[
             { img: imgUserStory1, alt: "Health aid helping elderly passenger at bus stop", text: "A health aid helping an elderly passenger get to a doctor's appointment who has to explain the sign's information." },
             { img: imgUserStory2, alt: "Text-to-speech button on bus pole", text: "A blind commuter unable to find the text-to-speech button because it doesn't have an identifying sound beacon." },
@@ -122,7 +122,7 @@ function ProblemSection() {
       </div>
 
       {/* Pain points */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">Top pain points</p>
         <div className="flex flex-col gap-5 w-full">
           <ContentCard title="Features don't reflect needs">
@@ -208,7 +208,7 @@ function PeerAnalysisSection() {
       <SectionNumber number={1} title="Peer analysis" />
 
       {/* Two display types */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We designed for two display types, with the goal of arriving at one recommended display type for large-scale installation.
         </p>
@@ -232,7 +232,7 @@ function PeerAnalysisSection() {
       </div>
 
       {/* Other transit authorities */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We learned how other complex transit authorities designed their bus pole units through landscape analyses and conversations with digital teams from{" "}
           <AnimatedLink href="https://tid.mbta.com/work/" external className="underline">Massachusetts</AnimatedLink>
@@ -243,7 +243,7 @@ function PeerAnalysisSection() {
           . Here were our learnings:
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
           <ContentCard title="Discourage vandalism">
             <p>Vertical hardware forms reduce obstruction and discourage vandalism — as does community-sourced art.</p>
           </ContentCard>
@@ -278,7 +278,7 @@ function UIDesignSection() {
       <SectionNumber number={2} title="UI design" />
 
       {/* Hardware constraints */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I needed to follow 3 hardware constraints: grayscale palette, limited battery supply, and data refresh rate.
         </p>
@@ -302,7 +302,7 @@ function UIDesignSection() {
       </div>
 
       {/* Layout & typography exploration */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I experimented layout and typography to accommodate long bus route numbers, longer destination names, and 5 different types of bus services – all on an A4-sized e-ink screen.
         </p>
@@ -332,7 +332,7 @@ function UIDesignSection() {
       </div>
 
       {/* Final designs */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           For the final designs, I utilized large type to draw attention to the high priority information, and grayscale to communicate arrival status, crowdedness, and special service types.
         </p>
@@ -374,7 +374,7 @@ function EndToEndUXSection() {
       <SectionNumber number={3} title="End-to-end UX" />
 
       {/* User testing → second screen */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           After conducting user testing at bus stations, rider feedback sent us in a new direction in hardware to show more relevant information about their journeys ahead.
         </p>
@@ -399,7 +399,7 @@ function EndToEndUXSection() {
       </div>
 
       {/* TTS button redesign */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We also had to ensure that blind or low-vision riders are able to use the device's text-to-speech (TTS) functions
         </p>
@@ -471,7 +471,7 @@ function EndToEndUXSection() {
       </div>
 
       {/* Final 2-screen design */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           The final design has 2 screens to show riders the right information, in the right place, at the right time.
         </p>
@@ -479,7 +479,7 @@ function EndToEndUXSection() {
       </div>
 
       {/* Art */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           New Yorkers love making "art"; the DOT hates vandalism. We bridged both needs.
         </p>
@@ -543,7 +543,7 @@ function RelatedProjectsSection() {
   return (
     <div className="flex flex-col gap-10 items-start w-full">
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
-      <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
+      <div className="flex flex-col sm:flex-row gap-8 items-start w-full">
         <RelatedProjectCard
           to="/case-study/bus-shelter"
           image={imgProjectShelter}

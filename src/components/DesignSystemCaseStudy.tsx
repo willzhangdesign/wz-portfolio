@@ -113,13 +113,13 @@ function ProblemSection() {
       <img alt="Old nyc.gov agency sites showing inconsistent designs" className="block w-full rounded-[12px]" src={imgProblem} loading="lazy" decoding="async" />
 
       {/* User stories */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
         <p className="typo-body text-black w-full max-w-[860px]">
           Picture yourself in the shoes of one of these New Yorkers below:
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
           {userStories.map((story, i) => (
             <div key={i} className="flex flex-col gap-4 items-start">
               <img
@@ -136,7 +136,7 @@ function ProblemSection() {
       </div>
 
       {/* Pain points */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">Top pain points</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full">
           <ContentCard title="Outdated UI and templates">
@@ -213,7 +213,7 @@ function VisualDirectionSection() {
       <SectionNumber number={1} title="Visual direction" />
 
       {/* Product north star */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           A user told us "It's unclear who this site is for – is it for New Yorkers in general or people that work for the government?".{" "}
           This became our product north star.
@@ -231,7 +231,7 @@ function VisualDirectionSection() {
       </div>
 
       {/* Two directions */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           From wide explorations, two directions emerged. I focused on developing Direction 2, landing a design language 100% of users called modern, approachable, and official.
         </p>
@@ -245,7 +245,7 @@ function VisualDirectionSection() {
         </div>
 
         {/* Direction cards side by side — hover to play */}
-        <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
+        <div className="flex flex-col sm:flex-row gap-8 items-start w-full">
           {/* Direction 1 */}
           <div
             className="bg-[#eee] flex-1 min-w-0 relative rounded-[8px] group/card1"
@@ -287,7 +287,7 @@ function VisualDirectionSection() {
       </div>
 
       {/* Additional explorations */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-body text-black w-full max-w-[860px]">
           Additional explorations aimed to integrate elements of Direction 1 into the look and feel of Direction 2, such as strong and bold typography, large format photography, and solid surfaces.
         </p>
@@ -414,7 +414,7 @@ function BrandFoundationsSection() {
       <SectionNumber number={2} title="Brand foundations" />
 
       {/* Typography */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We chose typefaces that are accessible, open-source, and translate into NYC's 10 official languages.
         </p>
@@ -430,7 +430,7 @@ function BrandFoundationsSection() {
         </div>
 
         {/* Font preview cards — side by side */}
-        <div className="flex flex-col sm:flex-row gap-6 w-full">
+        <div className="flex flex-col sm:flex-row gap-8 w-full">
           {/* Clash Grotesk */}
           <div className="flex-1 flex flex-col gap-3">
             <p className="typo-caption font-medium text-[#666]">Header font</p>
@@ -446,7 +446,7 @@ function BrandFoundationsSection() {
       </div>
 
       {/* Imagery guidelines */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We created new imagery guidelines that reflect the diversity and aspirations of New Yorkers.
         </p>
@@ -469,7 +469,7 @@ function BrandFoundationsSection() {
           </p>
         </div>
 
-        <div className="bg-[#eee] rounded-[8px] p-6 flex flex-col sm:flex-row gap-6 items-center w-full">
+        <div className="bg-[#eee] rounded-[8px] p-6 flex flex-col sm:flex-row gap-8 items-center w-full">
           <div className="typo-body text-black sm:w-1/3 shrink-0">
             <p>To celebrate <strong>the humans behind the imagery</strong> on nyc.gov, I designed a component to give them credit.</p>
             <p className="mt-2">Try it out! Click the image icon in the bottom right corner.</p>
@@ -481,7 +481,7 @@ function BrandFoundationsSection() {
       </div>
 
       {/* Color palette */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We simplified the foundational brand color palette to address navigability, usability, modernity, and complexity.
         </p>
@@ -490,7 +490,7 @@ function BrandFoundationsSection() {
         </p>
 
         {/* Color swatches */}
-        <div className="flex flex-row gap-3 sm:gap-6 w-full">
+        <div className="flex flex-row gap-3 sm:gap-8 w-full">
           <ColorSwatch name="Black" hex="#000000" bg="#000000" color="#FFFFFF" />
           <ColorSwatch name="White" hex="#FFFFFF" bg="#FFFFFF" color="#000000" border />
           <ColorSwatch name="Action blue" hex="#103FEF" bg="#103FEF" color="#FFFFFF" />
@@ -515,7 +515,7 @@ function BrandFoundationsSection() {
       </div>
 
       {/* Homepage and main pages */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           I designed the homepage and main pages with the new brand foundations to prioritize action, clarity, and wayfinding.
         </p>
@@ -554,7 +554,7 @@ function BrandFoundationsSection() {
       </div>
 
       {/* Design system site */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-body text-black w-full max-w-[860px]">
           The new foundations are now live on the{" "}
           <AnimatedLink href="https://designsystem.nyc.gov" external className="underline">NYC Digital Design System</AnimatedLink>
@@ -609,7 +609,7 @@ function RelatedProjectsSection() {
   return (
     <div className="flex flex-col gap-10 items-start w-full">
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
-      <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
+      <div className="flex flex-col sm:flex-row gap-8 items-start w-full">
         <RelatedProjectCard
           to="/case-study/nyc-redesign"
           image={imgProjectNycRedesign}

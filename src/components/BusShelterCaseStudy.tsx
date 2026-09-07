@@ -115,13 +115,13 @@ function ProblemSection() {
       />
 
       {/* User stories */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">User stories</p>
         <p className="typo-body text-black w-full max-w-[860px]">
           These are <strong>3 New Yorkers out of the 67+</strong> we spoke to through on-the-ground intercept interviews as well as online user testing.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full">
           {userStories.map((story, i) => (
             <div key={i} className="flex flex-col gap-4 items-start">
               <img
@@ -138,7 +138,7 @@ function ProblemSection() {
       </div>
 
       {/* Pain points */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h3 font-bold text-black w-full">Top pain points</p>
         <div className="flex flex-col gap-5 w-full">
           <ContentCard title="Unnoticeable">
@@ -245,7 +245,7 @@ function DesignSystemAdherenceSection() {
       <SectionNumber number={2} title="Design System Adherence" />
 
       {/* Countdown clocks */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           We decided to mimic the visual language of MTA's "Countdown Clocks" for its simplicity and ubiquity, but make it suitable for buses.
         </p>
@@ -262,7 +262,7 @@ function DesignSystemAdherenceSection() {
       </div>
 
       {/* TTS button */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           For blind or low-vision riders, we ensured that they'll be able to use the text-to-speech (TTS) function for bus info.
         </p>
@@ -315,7 +315,7 @@ function InformationHierarchySection() {
       <SectionNumber number={3} title="Information hierarchy and prioritization" />
 
       {/* Prototype explorations */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           The Mayor's Office for People with Disabilities gave feedback to minimize animation movement as much as possible.
         </p>
@@ -351,7 +351,7 @@ function InformationHierarchySection() {
       </div>
 
       {/* Final design */}
-      <div className="flex flex-col gap-6 items-start w-full">
+      <div className="flex flex-col gap-8 items-start w-full">
         <p className="typo-h2 font-bold text-black w-full">
           Our design reflected priority of information for riders – most look to this digital display as a high-level tracker, not a route-planning tool like the bus pole unit.
         </p>
@@ -423,7 +423,7 @@ function RelatedProjectsSection() {
   return (
     <div className="flex flex-col gap-10 items-start w-full">
       <p className="typo-body font-bold text-[#888] w-full">RELATED PROJECTS</p>
-      <div className="flex flex-col sm:flex-row gap-6 items-start w-full">
+      <div className="flex flex-col sm:flex-row gap-8 items-start w-full">
         <RelatedProjectCard
           to="/case-study/rtpi-pole"
           image={imgProjectRTPI}
