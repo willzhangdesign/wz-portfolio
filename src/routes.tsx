@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { createBrowserRouter, useRouteError } from "react-router";
 import { ScrollToTopLayout } from "./components/ScrollToTop";
-import { PasswordGate } from "./components/PasswordGate";
 import { HomePage } from "./components/HomePage";
 
 function ChunkErrorBoundary() {
@@ -37,29 +36,24 @@ export const router = createBrowserRouter([
         Component: HomePage,
       },
       {
-        Component: PasswordGate,
-        children: [
-          {
-            path: "/case-study/nyc-redesign",
-            element: <SuspenseWrapper><NycRedesignCaseStudy /></SuspenseWrapper>,
-          },
-          {
-            path: "/case-study/rtpi-pole",
-            element: <SuspenseWrapper><RtpiPoleCaseStudy /></SuspenseWrapper>,
-          },
-          {
-            path: "/case-study/bus-shelter",
-            element: <SuspenseWrapper><BusShelterCaseStudy /></SuspenseWrapper>,
-          },
-          {
-            path: "/case-study/vanguard",
-            element: <SuspenseWrapper><VanguardCaseStudy /></SuspenseWrapper>,
-          },
-          {
-            path: "/case-study/design-system",
-            element: <SuspenseWrapper><DesignSystemCaseStudy /></SuspenseWrapper>,
-          },
-        ],
+        path: "/case-study/nyc-redesign",
+        element: <SuspenseWrapper><NycRedesignCaseStudy /></SuspenseWrapper>,
+      },
+      {
+        path: "/case-study/rtpi-pole",
+        element: <SuspenseWrapper><RtpiPoleCaseStudy /></SuspenseWrapper>,
+      },
+      {
+        path: "/case-study/bus-shelter",
+        element: <SuspenseWrapper><BusShelterCaseStudy /></SuspenseWrapper>,
+      },
+      {
+        path: "/case-study/vanguard",
+        element: <SuspenseWrapper><VanguardCaseStudy /></SuspenseWrapper>,
+      },
+      {
+        path: "/case-study/design-system",
+        element: <SuspenseWrapper><DesignSystemCaseStudy /></SuspenseWrapper>,
       },
     ],
   },

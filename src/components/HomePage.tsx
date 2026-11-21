@@ -37,23 +37,19 @@ export function HomePage() {
           {/* Bio */}
           <div className="typo-body text-black w-[835px] max-w-full">
             <p className="mb-2.5 leading-[1.2]">
-              Product designer and strategist turning complex systems into services built for everyone.{" "}
-              Currently designing for the people of{" "}
-              <AnimatedLink href="https://www.nyc.gov/content/oti/pages/" external className="underline">New York City</AnimatedLink>.{" "}
-              Previously designed products for new market entry at{" "}
-              <AnimatedLink href="https://www.deloittedigital.com/us/en/accelerators/applied-design-innovation.html" external className="underline">Deloitte Digital</AnimatedLink>.
+              Product designer and strategist. I design how people get around cities, on the street and on screen.
             </p>
             <p className="mb-2.5 leading-[1.2]">
-              Past clients include{" "}
-              <AnimatedLink href="https://www.camber.health/product" external className="underline">Camber Health</AnimatedLink>,{" "}
-              <AnimatedLink href="https://www.edwardjones.com/us-en" external className="underline">Edward Jones</AnimatedLink>,{" "}
-              <AnimatedLink href="https://ownyourfuture.vanguard.com/en/home/publogin" external className="underline">Vanguard</AnimatedLink>,{" "}
-              <AnimatedLink href="https://www.anthem.com/medicare/medicare-advantage-plans" external className="underline">Anthem</AnimatedLink>, and{" "}
-              <AnimatedLink href="https://www.consumerreports.org/" external className="underline">Consumer Reports</AnimatedLink>.
+              I work at{" "}
+              <AnimatedLink href="https://ridewithvia.com/" external className="underline">Via</AnimatedLink> on{" "}
+              <AnimatedLink href="https://ridewithvia.com/products/remix" external className="underline">Remix</AnimatedLink>.{" "}
+              Before that,{" "}
+              <AnimatedLink href="https://www.nyc.gov/content/oti/pages/" external className="underline">New York City Government</AnimatedLink>, and before that,{" "}
+              <AnimatedLink href="https://www.deloittedigital.com/us/en/accelerators/applied-design-innovation.html" external className="underline">Deloitte Digital</AnimatedLink>, with healthcare and finance clients.
             </p>
             <p className="leading-[1.2]">
-              I also{" "}
-              <AnimatedLink href="https://www.instagram.com/wood.will.hunting/" external className="underline">make furniture</AnimatedLink>.
+              I also make{" "}
+              <AnimatedLink href="https://www.instagram.com/wood.will.hunting/" external className="underline">furniture</AnimatedLink>.
             </p>
           </div>
         </div>
