@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { createBrowserRouter, useRouteError } from "react-router";
 import { ScrollToTopLayout } from "./components/ScrollToTop";
 import { HomePage } from "./components/HomePage";
+import { PasswordGate } from "./components/PasswordGate";
 
 function ChunkErrorBoundary() {
   const error = useRouteError() as Error & { name?: string };
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/case-study/rtpi-pole",
-        element: <SuspenseWrapper><RtpiPoleCaseStudy /></SuspenseWrapper>,
+        element: <SuspenseWrapper><PasswordGate><RtpiPoleCaseStudy /></PasswordGate></SuspenseWrapper>,
       },
       {
         path: "/case-study/bus-shelter",
